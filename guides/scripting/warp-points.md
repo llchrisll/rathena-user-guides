@@ -15,4 +15,4 @@ So here is an example how our warp must look:
 
 `prontera,107,215,0 warp`<TAB>`prt01`<TAB>`2,2,prt_in,240,139`
 
-When we have completed defining our warp, we can add it to a existing warp file (placed in folder) or create a new file. If you choose the last don't forget to [add the new file to script list](general.md#a-new-script)!
+When we have completed defining our warp, we can add it to a existing warp file (placed in folder) or create a new file. If you choose the last don't forget to [add the new file to script list](adding.md#a-new-script)!

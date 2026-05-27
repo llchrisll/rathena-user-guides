@@ -1,5 +1,5 @@
 Here I will try to better explain timers. To understand half of what's going on here,  
-I suggest you already know how the basics of [scripting](general.md).
+I suggest you already know how the basics of [scripting](adding.md).
 
 Many people are confused as to the use of timers, and this guide aims to lend a helping hand.  
 So you might be wondering "What do we use timers for?" Well, my friend, this guide shall explain some of the many uses of timers.  
