@@ -7,7 +7,7 @@ on:
   # Trigger when code is merged to `master` branch
   push:
     branches:
-      - master
+      - docs/scripting
 
 jobs:
   build:
