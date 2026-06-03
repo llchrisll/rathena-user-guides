@@ -4,19 +4,19 @@ There are five parts to any shop script, tab separated to handle spaces in the n
 `prontera,153,194,4`<TAB>`shop`<TAB>`Card Seller Uno`<TAB>`93,4001:-1,4002:-1,4003:10575,4004:-1`
 `-      A       --B-     - C-     -     D      -    -E- - F_1 - - F_2 - -   F_3  - - F_4 -`
 
-* A - Location  
+* A: Location  
   This is the map and coordinates (".gat" is not necessary)
-* B - Direction  
+* B: Direction  
   Face your Shop any direction from this chart:
   ```
 	[1][8][7]
 	[2][0][6]
 	[3][4][5]
   ```
-* C NPC Type, shop in this case
-* D NPC Name, same as other NPCs
-* E NPC sprite number, a list for which can be found in [External Links](#external-links)
-* F Items being sold!  
+* C: NPC Type, shop in this case
+* D: NPC Name, same as other NPCs
+* E: NPC sprite number, a list for which can be found in [External Links](#external-links)
+* F: Items being sold!  
   Notice there are no curly brackets like normal scripts.  
   Don't add them, it will error out and skip your shop  
   * F_1~4: Item format is ```<ItemID>:<price>,<ItemID>,<price>...```  
@@ -41,22 +41,18 @@ And to run a duplicate, identical
 
 **Reference Manuals for scriping commands**
 
--   [Original documentation](https://github.com/rathena/rathena/blob/master/doc/script_commands.txt)
+-   [Original Documentation](https://github.com/rathena/rathena/blob/master/doc/script_commands.txt)
 
 **Sprite lists**
 
--   <http://the-aria.org/Enhancements/npclist.html>
--   <http://nn.nachtwolke.com/dev/npclist/>
+-   <https://nn.ai4rei.net/dev/npclist/>
 
 **Color Charts**
 
 -   <http://www.immigration-usa.com/html_colors.html>
 -   <http://www.december.com/html/spec/colorcodes.html>
--   [hex triplet](/wikipedia:Hex_triplet "wikilink")
 -   <http://www.colorschemer.com/online.html>
 
 **Support, Request and Release**
 
--   [Scripting Support on forums](http://rathena.org/board/forum/30-scripting-support/)
--   1.  scripting on irc.deltaanime.net : Dedicated channel for scripters. Come here to get or give semi-fast support or just for fun.
--   1.  rathena on irc.rathena.net : Main rAthena channel.
+-   [Scripting Support on rAthena Forum](http://rathena.org/board/forum/30-scripting-support/)

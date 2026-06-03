@@ -1,11 +1,18 @@
-What are loops?
+## What are loops?
 ---------------
-
-Loops are things made to make your life easier, at least, if you know how to use them. Loops can be powerfull when used right, but can also bring down any script. Loops come in handy when you need to go through a array, or when you need to do the same thing x times after eachother. The loops available in the Athena scripting language are For, While and Do ... While. All of those will be covered in this article, with their own examples. Also, the special loop commands break; and continue; will be covered. The intention of this page is that you will get to understand how loops work, and how to use them properly.
+Loops are things made to make your life easier, at least, if you know how to use them.  
+Loops can be powerfull when used right, but can also bring down any script.  
+Loops come in handy when you need to go through a array, or when you need to do the same thing x times after eachother.  
+The loops available in the Athena scripting language are **For**, **While** and **Do ... While**.  
+All of those will be covered in this article, with their own examples.  
+Also, the special loop commands break; and continue; will be covered.  
+The intention of this page is that you will get to understand how loops work, and how to use them properly.
 
 ### For Loop
-
-The for loop is probably the most seen loop used in rAthena scripting, this is usually used to loop through arrays and execute a series of commands for each array entry. But you can use it every time you need to execute a series of commands x times. For loops are build up of 3 or 4 parts, depending on how they are used. The general buildup for a For loop is as following:
+The for loop is probably the most seen loop used in rAthena scripting, this is usually used to loop through arrays and execute a series of commands for each array entry.  
+But you can use it every time you need to execute a series of commands x times.  
+For loops are build up of 3 or 4 parts, depending on how they are used.  
+The general buildup for a For loop is as following:
 ```
 for (initialization(1); condition(2); update(3)) {
    Code to execute(4);
@@ -25,29 +32,46 @@ for (set @i,0; @i < 10; set @i,@i+1) {
 }
 ```
 This is one of the most simple for loops you can think of, but it serves well as executable example. When this for loop is started, a message window will be created with the following context:
+```
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+```
 
-    0
-    1
-    2
-    3
-    4
-    5
-    6
-    7
-    8
-    9
-
-Note that the 10 is not there, since @i &lt; 10 is false when @i is 10. What the loops does is the same as explained above. Firstly, the initilization is done (set @i,0;) and the expression is evaluated. Then, the code is executed (mes @i;) and the end of the loop is reached, so it jumps back to the first part, and executes the action (set @i,@i+1) (See how this replaces the initialization part?). Then it starts evaluating the expression (@i &lt; 10), which is true since @i is 1. Because the expression is true, the code inside of the curlies is executed. This keeps on going until the expression is false, which will happen once @i is 10. As soon as that happens, it quits the loop and continues on the first line after the closing curly.
+	**Note**: 
+	The 10 is not there, since @i &lt; 10 is false when @i is 10.  
+	What the loops does is the same as explained above.  
+	Firstly, the initilization is done (set @i,0;) and the expression is evaluated.  
+	Then, the code is executed (mes @i;) and the end of the loop is reached,  
+	so it jumps back to the first part, and executes the action (set @i,@i+1) (See how this replaces the initialization part?).  
+	Then it starts evaluating the expression (@i &lt; 10), which is true since @i is 1.  
+	Because the expression is true, the code inside of the curlies is executed.  
+	This keeps on going until the expression is false, which will happen once @i is 10.  
+	As soon as that happens, it quits the loop and continues on the first line after the closing curly.
 
 ### While Loop
 
-This loop is almost the same as a for loop, but less automated. With this loop, you'll have to initialize the variable yourself, and increase it yourself. In some situations, this is better then the for loop. The general format for a while loop only contains out of two parts:
+This loop is almost the same as a for loop, but less automated.  
+With this loop, you'll have to initialize the variable yourself, and increase it yourself.  
+In some situations, this is better then the for loop.  
+The general format for a **while** loop only contains out of two parts:
 ```
 while (expression(1)) {
    Code to execute(2);
 }
 ```
-Both of these parts are the same as in the for loop, and the way it works is also similar. When the code is reached, the while loop evaluates the expression. If that expression returns true, the code will be executed. A while loop will only stop when break; is used, or the expression returns false. A simple example, doing the same as in the for loop example above, is this:
+Both of these parts are the same as in the for loop, and the way it works is also similar.  
+When the code is reached, the while loop evaluates the expression.  
+If that expression returns true, the code will be executed.  
+A while loop will only stop when break; is used, or the expression returns false.  
+A simple example, doing the same as in the for loop example above, is this:
 ```
     set @i,0;
     while (@i < 10) {
@@ -55,24 +79,35 @@ Both of these parts are the same as in the for loop, and the way it works is als
         set @i,@i+1;
     }
 ```
-The result will be exactly the same. As long as @i is smaller then 10, the code is executed. While loops can be used for a lot of things, including a (theoretically) never ending cycle:
+The result will be exactly the same.  
+As long as @i is smaller then 10, the code is executed. While loops can be used for a lot of things, including a (theoretically) never ending cycle:
 ```
     while (1) {
         mes "I won't go away!";
         next;
     }
 ```
-Note that the above is a script that will need you to relog!
+	**Note:** 
+	The above is a script that will need you to relog!
 
 ### Do ... While Loop
-
-Ah... We've already reached the last loop type. Wow, I actually managed to write stuff about the for and while loop eh... Well then. This loop is basically the same as a while loop, only the way it is executed is slightly different (and the same goes for the coding). Since there isn't much I can explain on loops anymore, I'll just start with the general format:
+Ah... We've already reached the last loop type.  
+Wow, I actually managed to write stuff about the for and while loop eh...  
+Well then. This loop is basically the same as a while loop, only the way it is executed is slightly different (and the same goes for the coding).  
+Since there isn't much I can explain on loops anymore, I'll just start with the general format:
 ```
     do {
         Code to execute(1)
     } while (expression(2));
 ```
-See how the code and expression changed? Basically, this is a inverted while loop, and the do is only there to let the engine know there is a loop. Once this part of code is reached, the code will be executed first (!). Once the code is executed, the expression is evaluated. If the expression returns true, it loops back to the do, and runs the code again. If you noticed that this way, the code is always executed at least once, good job =). If you didn't, well, then you know it now :P. This is because the engine executes scripts from top to bottom (excluded goto's and such), that way, the engine will first find the do {, then the code, and then the while. Again, the simple example from before:
+See how the code and expression changed?  
+Basically, this is a inverted while loop, and the do is only there to let the engine know there is a loop.  
+Once this part of code is reached, the code will be executed first (!).  
+Once the code is executed, the expression is evaluated. If the expression returns true, it loops back to the do, and runs the code again.  
+If you noticed that this way, the code is always executed at least once, good job =).  
+If you didn't, well, then you know it now :P.  
+This is because the engine executes scripts from top to bottom (excluded goto's and such), that way, the engine will first find the do {, then the code, and then the while.  
+Again, the simple example from before:
 ```
 set @i,0;
 do {
@@ -88,7 +123,8 @@ do {
    set @i,@i+1;
 } while (@i != 0);
 ```
-Note that this easily happens when comparing two variables in the expression.
+	**Note:**  
+	This easily happens when comparing two variables in the expression.
 
 ### Break and Continue
 
@@ -128,10 +164,11 @@ This will return:
 
 The 'mes @i;' code is not executed when the if in front of the continue; is true, which is for @i &gt; 5 and @i &lt;= 8 (5,6,7,8) and thus, those will not be shown in the message window.
 
-Final notes
+## Final Notes
 -----------
-
-I might add some more to this page once I think of things missing. Do not hesitate to add them yourself, or to contact me if you don't dare to edit this page ;P. Good luck with loops =) -- Yhn 15:51, 28 June 2007 (CDT)
+I might add some more to this page once I think of things missing. Do not hesitate to add them yourself, or to contact me if you don't dare to edit this page ;P.  
+Good luck with loops =)   
+-- Yhn 15:51, 28 June 2007 (CDT)
 
 One note by me: when your loop has only one line (aside from the command word/s), you can dispose of the { }. One line can be:
 ```
