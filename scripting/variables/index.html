@@ -1,0 +1,3386 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="User Guides created by the rAthena community. These guides are generated from a Github repository and turned into an easy to use website.">
+      
+      
+        <meta name="author" content="rAthena Developement Team">
+      
+      
+        <link rel="canonical" href="https://rathena.github.io/user-guides/scripting/variables/">
+      
+      
+        <link rel="prev" href="../timers/">
+      
+      
+        <link rel="next" href="../menus/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Variables - rAthena User Guides</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#overview-of-variables" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="rAthena User Guides" class="md-header__button md-logo" aria-label="rAthena User Guides" data-md-component="logo">
+      
+  <img src="../../img/ra_user_guides_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            rAthena User Guides
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Variables
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rathena/user-guides/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rathena/user-guides
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="rAthena User Guides" class="md-nav__button md-logo" aria-label="rAthena User Guides" data-md-component="logo">
+      
+  <img src="../../img/ra_user_guides_logo.png" alt="logo">
+
+    </a>
+    rAthena User Guides
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rathena/user-guides/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rathena/user-guides
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guides Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Installing rAthena
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Installing rAthena
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installing/debian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debian
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installing/docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Configurations
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Configurations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/imports/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Imports
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Scripting
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Scripting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adding Scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/rathena/rathena/blob/master/doc/script_commands.txt" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../errors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview of Errors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tips and Tricks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mapflags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapflags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monster-spawn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Monster Spawns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    NPC
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            NPC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Loops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../timers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Variables
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Variables
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview of Variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#allowed-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allowed Variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format-of-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Format of Variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#settingmodifyingdeleting-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting/Modifying/Deleting Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting/Modifying/Deleting Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#normal-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Normal Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#array-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Array Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-out-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading out Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reading out Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#normal-variables_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Normal Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Normal Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#other-ways-to-check-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other ways to check variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#array-variables_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Array Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-vs-permanent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporal vs Permanent
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-in-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables in Detail
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables in Detail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Global Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-account-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Account Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Global Account Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#account-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Account Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Account Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#player-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Player Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Player Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#npc-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      NPC Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NPC Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Special Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getd-setd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getd &amp; Setd
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getd & Setd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simulating-guild-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulating Guild Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulating-multidimensional-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulating Multidimensional Arrays
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvariableofnpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getvariableofnpc
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-important-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Important Info
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Important Info">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naming-your-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming your Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Naming your Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-restrictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Restrictions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-restrictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special Restrictions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reserved-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reserved Names
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reserved Names">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constants
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameter Constants
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#word-of-advice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Word of Advice
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minima-and-maxima-of-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minima and Maxima of Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alive-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alive Time
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-related-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Related Errors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variable Related Errors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strint-and-intstr-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Str&amp;Int and Int&amp;Str Errors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-rid-attached-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      No RID attached Error
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attachrid-giving-unexpected-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attachrid giving unexpected values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-keeps-displaying-0-or" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable keeps displaying 0 or ""
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../menus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Menus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../warp-points/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Warp Points
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shop-creation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../woe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    War of Emperium
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MSVS Debugging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extensions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extensions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Links
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Links
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/rathena/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://rathena.org/board/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Forums
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://rathena.org/wiki/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wiki
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://discord.gg/kMeMXWEvSV" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Discord
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CONTRIBUTING/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contribute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview of Variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#allowed-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allowed Variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format-of-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Format of Variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#settingmodifyingdeleting-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting/Modifying/Deleting Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting/Modifying/Deleting Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#normal-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Normal Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#array-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Array Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-out-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading out Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reading out Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#normal-variables_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Normal Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Normal Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#other-ways-to-check-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other ways to check variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#array-variables_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Array Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-vs-permanent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporal vs Permanent
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-in-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables in Detail
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables in Detail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Global Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-account-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Account Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Global Account Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#account-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Account Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Account Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#player-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Player Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Player Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#npc-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      NPC Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NPC Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Special Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getd-setd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getd &amp; Setd
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getd & Setd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simulating-guild-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulating Guild Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulating-multidimensional-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulating Multidimensional Arrays
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvariableofnpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getvariableofnpc
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-important-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Important Info
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Important Info">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naming-your-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming your Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Naming your Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-restrictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Restrictions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-restrictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special Restrictions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reserved-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reserved Names
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reserved Names">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constants
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameter Constants
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#word-of-advice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Word of Advice
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minima-and-maxima-of-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minima and Maxima of Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alive-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alive Time
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-related-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Related Errors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variable Related Errors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strint-and-intstr-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Str&amp;Int and Int&amp;Str Errors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-rid-attached-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      No RID attached Error
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attachrid-giving-unexpected-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attachrid giving unexpected values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-keeps-displaying-0-or" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable keeps displaying 0 or ""
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Variables</h1>
+
+<p>When you are writing a new script, or altering a current script, it is very likely that you will need to store values and also look them up.<br />
+Variables do exactly this. They are commonly compared to the files and folders in a filing cabinet.<br />
+You can store a value or text in a variable, and look it up later again, or even change it.<br />
+This article will cover the different kinds of variables which exist in the Athena Scripting Language.<br />
+It will also process their common use, their scopes and limits.<br />
+Also, each variable will be accompanied by a small example.</p>
+<h2 id="overview-of-variables">Overview of Variables<a class="headerlink" href="#overview-of-variables" title="Permanent link">&para;</a></h2>
+<hr />
+<p>rAthena uses different kind of variables for different kinds of situations.<br />
+Variables come in different forms and sizes.<br />
+Each variable type has a different scope, from temporal player and NPC variables all up to global system variables.<br />
+Integer values (Integer values are whole numbers, like 0, 1, 2, 1487, -73452) are stored in a different way than String values (String means text or a single letter, like "I love you!" or "x").<br />
+Some types of script variables even support a single dimension array.<br />
+But if this all is too much for you, it will all become clear in time.<br />
+First, the overview of which variables are allowed and which aren't.</p>
+<h2 id="allowed-variables">Allowed Variables<a class="headerlink" href="#allowed-variables" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Prefix</th>
+<th>Type</th>
+<th>Normal</th>
+<th>Array</th>
+<th>Exceptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>none</em></td>
+<td>Character</td>
+<td>OK!</td>
+<td>FAIL!</td>
+<td>temporary version allows arrays</td>
+</tr>
+<tr>
+<td><code>#</code></td>
+<td>Account</td>
+<td>OK!</td>
+<td>FAIL!</td>
+<td>no temporary version</td>
+</tr>
+<tr>
+<td><code>##</code></td>
+<td>Global Account</td>
+<td>OK!</td>
+<td>FAIL!</td>
+<td>no temporary version</td>
+</tr>
+<tr>
+<td>.</td>
+<td>NPC</td>
+<td>OK!</td>
+<td>OK!</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td>$</td>
+<td>Global</td>
+<td>OK!</td>
+<td>OK!</td>
+<td><em>none</em></td>
+</tr>
+</tbody>
+</table>
+<p>The schema shown above goes for each type of variable, no matter if it is temporary or permanent, integer or a string variable.</p>
+<h2 id="format-of-variables">Format of Variables<a class="headerlink" href="#format-of-variables" title="Permanent link">&para;</a></h2>
+<p>Unlike C, Java or any coding language, with scripting, the type of variable is determined by the name, not by the declaration.<br />
+For example, to make a variable in C an Integer variable, you will have to declare it by typing: <code>int var;</code>
+Athena Scripting, is like the name already implies, a Scripting language.<br />
+There is no need to declare a variable before using it, it is all done by the name of variable.  </p>
+<p>The most basic variable is the permanent integer player variable.  It looks like this:</p>
+<div class="language-text highlight"><pre><span></span><code>var
+</code></pre></div>
+<p>To make it a string variable, all you have to do is put a $ after it, like this:</p>
+<div class="language-text highlight"><pre><span></span><code>var$
+</code></pre></div>
+<p>You can also make it a temporal variable.<br />
+This means that the value is stored until the next reboot or crash of the map server.<br />
+All you need to do is add the prefix @. (Prefix means, something that is put in front.)<br />
+So that makes the variable look like this:</p>
+<div class="language-text highlight"><pre><span></span><code>@var
+</code></pre></div>
+<p>And for a temporal player string variable, it looks like this:</p>
+<div class="language-text highlight"><pre><span></span><code>@var$
+</code></pre></div>
+<p>Unfortunately, the array option fails for permanent player variables.<br />
+However, it does work for the temporal version.<br />
+To make a variable behave like an array, all you have to do is add <strong>[]</strong> after the variable.<br />
+We will get into it later on in detail, but here is how it would look for a temporal player integer array variable and a temporal player string variable:</p>
+<div class="language-text highlight"><pre><span></span><code>@var[]
+@var$[]
+</code></pre></div>
+<p>As you can see, it is placed even after the string postfix when it is present. (Postfix means something at the end of something. So, the string postfix is $ and the array postfix is <strong>[]</strong>.)</p>
+<p>Now, for a different type of variable, like global or account, you will have to use a different prefix. Kind of like the temporal prefix @, only this gets even placed in front of that.<br />
+The prefixes are noted in the schematic at the start of the previous section.<br />
+But, let's make an example list to show you all possible things:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Normal</th>
+<th>Array</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Integer</td>
+<td>String</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>Temporary</td>
+<td>Permanent</td>
+<td>Temporary</td>
+</tr>
+<tr>
+<td>Player</td>
+<td>@var</td>
+<td>var</td>
+</tr>
+<tr>
+<td>Account</td>
+<td>N/A</td>
+<td>#var</td>
+</tr>
+<tr>
+<td>Global Account</td>
+<td>N/A</td>
+<td>##var</td>
+</tr>
+<tr>
+<td>NPC</td>
+<td>.@var</td>
+<td>.var</td>
+</tr>
+<tr>
+<td>Global</td>
+<td>$@var</td>
+<td>$var</td>
+</tr>
+</tbody>
+</table>
+<h2 id="using-variables">Using Variables<a class="headerlink" href="#using-variables" title="Permanent link">&para;</a></h2>
+<hr />
+<p>Now that we know which variables exist, it is time to elaborate on how you exactly use them.</p>
+<h3 id="settingmodifyingdeleting-variables">Setting/Modifying/Deleting Variables<a class="headerlink" href="#settingmodifyingdeleting-variables" title="Permanent link">&para;</a></h3>
+<h4 id="normal-variables">Normal Variables<a class="headerlink" href="#normal-variables" title="Permanent link">&para;</a></h4>
+<p>As of the usage of set has become obsolete and is no longer a requirement.</p>
+<p>You set a variable by using the command set. The format is:</p>
+<ul>
+<li><code>set &lt;variable&gt;,&lt;value&gt;;</code></li>
+</ul>
+<p>or</p>
+<ul>
+<li><code>&lt;variable&gt; = &lt;value&gt;;</code></li>
+</ul>
+<p>Examples:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>set var, 5; // Setting a permanent integer player variable to 5.
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>set $var$, &quot;Hello&quot;; // Setting a global string variable to &quot;Hello&quot;.
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>set .@var[5], 10; // Setting the sixth element (5 + 1) of the temporal integer NPC variable to 10.
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>set #var, #var * 2; // Multiplying the value that is in #var by 2 and store it in #var again.
+</span></code></pre></div>
+or
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>var = 5; // Setting a permanent integer player variable to 5.
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$var$ = &quot;Hello&quot;; // Setting a global string variable to &quot;Hello&quot;.
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>.@var[5] = 10; // Setting the sixth element (5 + 1) of the temporal integer NPC variable to 10.
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>#var = #var * 2; // Multiplying the value that is in #var by 2 and store it in #var again. 
+</span></code></pre></div>
+You can also unset a variable, which is not needed per se, but saves memory. To unset an integer value, you need to store 0 in it, so like this:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>set var, 0;
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>var = 0;
+</span></code></pre></div>
+To unset a string variable, you will have to set the variable to "". (An empty string.) Another example:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>set @var$, &quot;&quot;;
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>@var$ = &quot;&quot;;
+</span></code></pre></div>
+Other possible examples
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>@i = 1;
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>@i++;
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>@i *= 2;
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>@i = @j = 1;
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>@i -= @j;
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>for( @i = 0; 10 &gt; @i; @i++ ) { }
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>while( (@i += 1) &lt; 20 ) { }
+</span></code></pre></div>
+For more information read: <a href="http://rathena.org/board/topic/62395-r15982-script-engine-update/">Forum Update</a></p>
+<h4 id="array-variables">Array Variables<a class="headerlink" href="#array-variables" title="Permanent link">&para;</a></h4>
+<p>An array is a variable that references consecutive memory blocks of the same type.<br />
+In C or any other programming / scripting language, an array has no limitation as in how many indexes (how many consecutive blocks of memory it references to) it can hold, nor its dimensions (how many arrays can an array hold. It's like a matrix of 2x3, for example).</p>
+<p>In Athena, it has a limitation of 2.1b possible values held by a single array, and a single dimension (mostly because strings can use a full index regardless of the length of the string it references to).</p>
+<p>Arrays can be set and unset using the default set. They also come with a special set of commands, to quickly set multiple values, or cleaning them. These are the Array related commands.</p>
+<ul>
+<li><code>cleararray</code></li>
+<li><code>copyarray</code></li>
+<li><code>deletearray</code></li>
+<li><code>getarraysize</code></li>
+<li><code>getelementofarray</code></li>
+<li><code>setarray</code></li>
+</ul>
+<p>To quickly set multiple values in an array, you need to use setarray.<br />
+It will look like this:</p>
+<p><code>setarray @array[0],100,200,300;</code></p>
+<p>This will result in this:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>@array[0] == 100
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>@array[1] == 200
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>@array[2] == 300
+</span></code></pre></div>
+Deletearray is used to quickly erase a specified amount of elements of an array. It can also be used to completely unset it.</p>
+<p><code>deletearray @array[0],1; // Deletes element 0 of the array, and moves every other entry up.</code></p>
+<p>Result using the previous array:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>@array[0] == 200
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>@array[1] == 300
+</span></code></pre></div>
+To completely erase an array using this command, you should type this:</p>
+<p><code>deletearray @array[0],getarraysize(@array); // getarraysize gets the amount of elements in an array.</code></p>
+<p>Another way to quickly set or unset an array is the cleararray command. Cleararray is actually better than setarray if you want to fill an array with the same values, like this:</p>
+<p><code>cleararray @array[0],100,57;</code></p>
+<p>The result is this:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>@array[0] == 100
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>@array[1] == 100
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>...
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>@array[56] == 100
+</span></code></pre></div>
+Taking the previous @array as example variable, to clear it partially, you can use the command in this way:</p>
+<p><code>cleararray @array[1],0,8;</code></p>
+<p>Please note, that unlike deletearray, it will not shift the remaining values. The result will be this:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>@array[0], @array[9] ~ @array[56] == 100
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>@array[1] ~ @array[8] == 0
+</span></code></pre></div>
+To completely erase an array, you can use it in this way:</p>
+<p><code>cleararray @array[0],0,getarraysize(@array);</code></p>
+<h3 id="reading-out-variables">Reading out Variables<a class="headerlink" href="#reading-out-variables" title="Permanent link">&para;</a></h3>
+<h4 id="normal-variables_1">Normal Variables<a class="headerlink" href="#normal-variables_1" title="Permanent link">&para;</a></h4>
+<p>Storing and unsetting variables is one thing. Reading them out is something else. Thankfully, it is an easy something else. We already actually read out a variable before, at the modifying part:</p>
+<p><code>set #var, #var * 2; // Multiplying the value that is in #var by 2 and store it in #var again.</code></p>
+<p>As you can see, all you need to do to read out a variable, is only typing the variable name. It works the same for any command like the if statement:</p>
+<p><code>if(#var &gt; 2) close; // If #var contains a value bigger than 2, then show a close button.</code></p>
+<p>If you are using the mes command, or another text displaying command, it works a bit differently:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>mes #var; // Will display a line with only the value of #var.
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>mes &quot;You have killed &quot; + dead_porings + &quot; Porings.&quot;;  // Will display this: 
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>                             // &quot;You have killed &lt;value of dead_porings&gt;
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>                             // Porings.&quot;
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>mes @name$; // If @name$ contains &quot;[Kafra]&quot;, it will display &quot;[Kafra]&quot;
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>mes &quot;My name is &quot;+@name$; // If @name$ contains &quot;Trevor&quot;, it will display: &quot;My name is Trevor&quot;
+</span></code></pre></div></p>
+<h5 id="other-ways-to-check-variables">Other ways to check variables<a class="headerlink" href="#other-ways-to-check-variables" title="Permanent link">&para;</a></h5>
+<p>There are other ways to check the value of a variable, as in if it has been declared or not.</p>
+<p>You can check if a variable has been declared, different from 0, or not,equal to 0. A variable that has been declared and set to 0 is said to be "undeclared".</p>
+<p>To do so, you do:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>if (foo) ...   // this will check if &#39;foo&#39; has been declared or not. If the value &#39;foo&#39;
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>               // holds is different from 0 (declared), it will return true. Otherwise it
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>               // will return false.
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>if (foo != 0) ...   // Same as above
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>if (!foo) ...  // this will check if &#39;foo&#39; has been declared or not. If the value &#39;foo&#39;
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>               // holds is equal to 0 (not declared), it will return true. Otherwise it
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>               // will return false.
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>if (foo == 0) ...   // Same as above
+</span></code></pre></div>
+! is an unary negation operator. If you use it on the number 0 it will return 1. If you use it on anything other than 0 it will return 0.</p>
+<div class="language-text highlight"><pre><span></span><code>**Note:**  
+! doesn&#39;t support string variable
+</code></pre></div>
+<h4 id="array-variables_1">Array Variables<a class="headerlink" href="#array-variables_1" title="Permanent link">&para;</a></h4>
+<p>To read out a value of an array, you will have to specify which element of the array you want to see. Let's say, we have the following array:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>@array[0] == 41
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>@array[1] == 12
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>@array[2] == 54
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>@array[3] == 4
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>@array[4] == 22
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>@array[5] == 30
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>@array[6] == 21
+</span></code></pre></div>
+And we have the following script:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>mes &quot;[Lotto]&quot;;
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>mes &quot;And today&#39;s numbers are:&quot;;
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>mes @array[0]+&quot;, &quot;+@array[1]+&quot;, &quot;+@array[2]+&quot;, &quot;+@array[3]+&quot;, &quot;+@array[4]+&quot; and &quot;+@array[5]+&quot;.&quot;;
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>mes &quot;And the bonus number is &quot;+@array[6]+&quot;.&quot;;
+</span></code></pre></div>
+Then it will display this:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>[Lotto]
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>And today&#39;s numbers are:
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>41, 12, 54, 4, 22 and 30.
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>And the bonus number is 21.
+</span></code></pre></div></p>
+<h3 id="temporal-vs-permanent">Temporal vs Permanent<a class="headerlink" href="#temporal-vs-permanent" title="Permanent link">&para;</a></h3>
+<p>When you use a variable, you can choose between making it temporal or permanent, with the exception of account variables.<br />
+Permanent variables survive everything, even a reboot of the server.<br />
+Temporal variables however, do not survive a reboot and are cleaned out when the map server is killed.<br />
+This is useful when you only want to store simple things, like a random number or the name of a NPC.<br />
+Please note that the temporal NPC variable actually works a bit different.<br />
+It ceases to exist when the script encounters the close; command or the end; command.</p>
+<h2 id="variables-in-detail">Variables in Detail<a class="headerlink" href="#variables-in-detail" title="Permanent link">&para;</a></h2>
+<hr />
+<p>This section will cover each variable indepth, including examples of how and when to use them.</p>
+<h3 id="global-variables">Global Variables<a class="headerlink" href="#global-variables" title="Permanent link">&para;</a></h3>
+<h4 id="details">Details<a class="headerlink" href="#details" title="Permanent link">&para;</a></h4>
+<p>Global variables support the temporal option, the string option and the array option.<br />
+The advantage of a global variable is that they can be accessed by any NPC, function or subroutine.<br />
+They also do not require the interaction of a player, and can thus be used by time triggered events, or during start up events.<br />
+When used without the @-prefix (Temporal prefix), this variable survives a server restart, and thus can be used to store important information like announcement messages.</p>
+<p>Global permanent variables are stored in SQL database via <code>map_reg</code> table.
+Changing the value of a global variable while the server is up, should only be done by using set, setd or one of the array commands.<br />
+Altering the value of it in mapreg.txt or in the table mapreg while the server is running, will be ignored and overwritten by the next save sweep.<br />
+If you want to alter the value of a global variable manually, so without any of the NPC commands, then you must make sure that your server is completely down.<br />
+The temporal global variable is stored directly in the memory, and thus not accessible through any other way besides the default NPC commands.</p>
+<p>Another special thing about the way Global Variables are saved, is that they are always treated as if they are an Array.<br />
+The format is this: <code>&lt;variable name&gt;,&lt;index&gt;,&lt;value&gt;</code></p>
+<p>The prefix of a global variable is <strong>$</strong>.</p>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
+<p>Global variables are perfect to enable/disable NPCs on command.<br />
+For example, if you want to host an event and you made a warper for it, then you want the warper to do nothing, until a GM starts hosting the event.<br />
+You will also want the NPC to automatically be closed when the server crashes or reboots.<br />
+This will prevent any players to go to the event before the GM is online. </p>
+<p>Here is how you could code such a simple warper:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>prontera,147,177,7 script  Event Warper    116,{
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>   if (getgmlevel() &gt;= 60) goto L_GMMenu; // If the player is a GM, go to the GM Menu.
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>   if (!$@EW_Enable) { // If the event is disabled, tell the player.
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>       mes &quot;[Event Warper]&quot;;
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>       mes &quot;Sorry, but the event arena is closed for the moment.&quot;;
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>       close;
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>   }
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>   mes &quot;[Event Warper]&quot;;
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>   mes &quot;Do you want to go to the event?&quot;;
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>   next;
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>   if (select(&quot;Yes&quot;,&quot;No&quot;) == 1) {
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>       warp $@event_map$,$@event_x,$@event_y; // Warp to the map stored in $@event_map$, at the coords $@event_x and $@event_y
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>   }
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>   close;
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>   
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>L_GMMenu:
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>   mes &quot;[Event Warper]&quot;;
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>   mes &quot;Please choose an option.&quot;;
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>   next;
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>   switch(select(&quot;View Settings&quot;,&quot;Set Destination&quot;,&quot;Enable Warper&quot;,&quot;Disable Warper&quot;,&quot;Leave&quot;)) {
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>   case 1: // View Settings
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>       mes &quot;[Event Warper]&quot;;
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>       if ($@EW_Enable) mes &quot;I am currently enabled.&quot;;
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>       else mes &quot;I am currently disabled.&quot;;
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>       mes &quot;The current destination is: &quot;+$@event_map$+&quot; at &quot;+$@event_x+&quot;, &quot;+$@event_y+&quot;.&quot;;
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>       break;
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a>   case 2: // Set Destination
+</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a>       mes &quot;[Event Warper]&quot;;
+</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a>       mes &quot;Please enter the destination map.&quot;;
+</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a>       next;
+</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a>       input $@event_map$; // Setting the event map in $@event_map$
+</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a>       mes &quot;[Event Warper]&quot;;
+</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a>       mes &quot;Please enter the x coordinate.&quot;;
+</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a>       next;
+</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a>       input $@event_x; // Setting the x coordinate in $@event_x
+</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a>       mes &quot;[Event Warper]&quot;;
+</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a>       mes &quot;Please enter the y coordinate.&quot;;
+</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a>       next;
+</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a>       input $@event_y; // Setting the y coordinate in $@event_y
+</span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a>       mes &quot;[Event Warper]&quot;;
+</span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a>       mes &quot;Destination set.&quot;;
+</span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a>       break;
+</span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a>   case 3: // Enable Warper
+</span><span id="__span-14-44"><a id="__codelineno-14-44" name="__codelineno-14-44" href="#__codelineno-14-44"></a>       mes &quot;[Event Warper]&quot;;
+</span><span id="__span-14-45"><a id="__codelineno-14-45" name="__codelineno-14-45" href="#__codelineno-14-45"></a>       if ($@EW_Enable) {
+</span><span id="__span-14-46"><a id="__codelineno-14-46" name="__codelineno-14-46" href="#__codelineno-14-46"></a>           mes &quot;I am already enabled.&quot;;
+</span><span id="__span-14-47"><a id="__codelineno-14-47" name="__codelineno-14-47" href="#__codelineno-14-47"></a>       } else {
+</span><span id="__span-14-48"><a id="__codelineno-14-48" name="__codelineno-14-48" href="#__codelineno-14-48"></a>           set $@EW_Enable, 1; // Setting $@EW_Enable to 1, to enable the NPC.
+</span><span id="__span-14-49"><a id="__codelineno-14-49" name="__codelineno-14-49" href="#__codelineno-14-49"></a>           mes &quot;It has been done.&quot;;
+</span><span id="__span-14-50"><a id="__codelineno-14-50" name="__codelineno-14-50" href="#__codelineno-14-50"></a>       }
+</span><span id="__span-14-51"><a id="__codelineno-14-51" name="__codelineno-14-51" href="#__codelineno-14-51"></a>       break;
+</span><span id="__span-14-52"><a id="__codelineno-14-52" name="__codelineno-14-52" href="#__codelineno-14-52"></a>   case 4: // Disable Warper
+</span><span id="__span-14-53"><a id="__codelineno-14-53" name="__codelineno-14-53" href="#__codelineno-14-53"></a>       mes &quot;[Event Warper]&quot;;
+</span><span id="__span-14-54"><a id="__codelineno-14-54" name="__codelineno-14-54" href="#__codelineno-14-54"></a>       if (!$@EW_Enable) {
+</span><span id="__span-14-55"><a id="__codelineno-14-55" name="__codelineno-14-55" href="#__codelineno-14-55"></a>           mes &quot;I am already disabled.&quot;;
+</span><span id="__span-14-56"><a id="__codelineno-14-56" name="__codelineno-14-56" href="#__codelineno-14-56"></a>       } else {
+</span><span id="__span-14-57"><a id="__codelineno-14-57" name="__codelineno-14-57" href="#__codelineno-14-57"></a>           set $@EW_Enable, 0; // Setting $@EW_Enable to 0, to disable the NPC.
+</span><span id="__span-14-58"><a id="__codelineno-14-58" name="__codelineno-14-58" href="#__codelineno-14-58"></a>           mes &quot;It has been done.&quot;;
+</span><span id="__span-14-59"><a id="__codelineno-14-59" name="__codelineno-14-59" href="#__codelineno-14-59"></a>       }
+</span><span id="__span-14-60"><a id="__codelineno-14-60" name="__codelineno-14-60" href="#__codelineno-14-60"></a>       break;
+</span><span id="__span-14-61"><a id="__codelineno-14-61" name="__codelineno-14-61" href="#__codelineno-14-61"></a>   case 5: // Leave
+</span><span id="__span-14-62"><a id="__codelineno-14-62" name="__codelineno-14-62" href="#__codelineno-14-62"></a>       close;
+</span><span id="__span-14-63"><a id="__codelineno-14-63" name="__codelineno-14-63" href="#__codelineno-14-63"></a>   }
+</span><span id="__span-14-64"><a id="__codelineno-14-64" name="__codelineno-14-64" href="#__codelineno-14-64"></a>   next;
+</span><span id="__span-14-65"><a id="__codelineno-14-65" name="__codelineno-14-65" href="#__codelineno-14-65"></a>   goto L_GMMenu;
+</span><span id="__span-14-66"><a id="__codelineno-14-66" name="__codelineno-14-66" href="#__codelineno-14-66"></a>}
+</span></code></pre></div></p>
+<p>If you want a warper that is enabled for several days,<br />
+like a special event that is always open in this period, then you should use permanent global variables.<br />
+This will allow the NPC to be active even after a server crash,<br />
+so that the people can access the special map right away, without having o wait for a GM to come online.<br />
+So, instead of <code>$@EW_Enable</code>, you should use <code>$EW_Enable</code>.<br />
+And the map, x and y variables should become <code>$event_map$, $event_x and $event_y</code>.</p>
+<h3 id="global-account-variables">Global Account Variables<a class="headerlink" href="#global-account-variables" title="Permanent link">&para;</a></h3>
+<h4 id="details_1">Details<a class="headerlink" href="#details_1" title="Permanent link">&para;</a></h4>
+<p>Global Account Variables aren't really of any use unless you run a server which has multiple map servers and only one login server.<br />
+This is why it is a rarely used variable.<br />
+In theory, it is exactly the same as a normal account variable, with one slight difference.<br />
+It is kind of hard to explain if this is your first time using variables, but in essence, a global account variable is stored by the login server instead of the char server.<br />
+This makes it so that the value of the account variable is the same for the player's account in each of the map servers of your server.<br />
+The normal account variable is unique on each map server.<br />
+The global account variable does not support the temporal prefix (@) nor the array.<br />
+This means that they are less dynamic and always survive a server restart.</p>
+<p>The global account variable is stored in the table called <code>global_acc_reg_num</code> for numeric entries and <code>global_acc_reg_str</code> for string related entries.  </p>
+<p>The rumours are that it is possible to alter a global variable without using NPC commands. 
+ However, the entire account needs to be offline and out of the memory on ALL the login, char and mapservers, to make it so that changing it has any effect.<br />
+ If you change the value of a global account variable and there is a character online of that account, then your new value will be overwritten in time by the saving routine of the server.</p>
+<p>The prefix of a global account variable is <code>##</code>.</p>
+<h4 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h4>
+<p>Global account variables are useful when you use a voting NPC.<br />
+If you want it so that each account can only vote once, and you have multiple mapservers, then you want all the other mapservers to know if an account has already voted or not.<br />
+This will prevent a certain account to vote more than once.<br />
+The script below is an example of such a voting NPC.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>prontera,147,177,7 script  Poll    116,{
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>   if (##AlreadyVoted) { // Account has already voted on a mapserver.
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>       mes &quot;These are the current results:&quot;;
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>       mes &quot;Yes : &quot;+$Poll_Yes+&quot;/&quot;+ ($Poll_Yes + $Poll_No) +&quot; votes (&quot;+ (($Poll_Yes * 100)/($Poll_Yes + $Poll_No)) +&quot;%).&quot;;
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>       mes &quot;Yes : &quot;+$Poll_No+&quot;/&quot;+ ($Poll_Yes + $Poll_No) +&quot; votes (&quot;+ (($Poll_No * 100)/($Poll_Yes + $Poll_No)) +&quot;%).&quot;;
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>       close;
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>   }
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>   mes &quot;Poll of today:&quot;;
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>   mes &quot;Do you like this server?&quot;;
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>   next;
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>   switch(select(&quot;Yes&quot;,&quot;No&quot;)) {
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>   case 1: // Voted Yes.
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>       set $Poll_Yes, $Poll_Yes + 1;
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>       break;
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>   case 2: // Voted No.
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>       set $Poll_No, $Poll_No + 1;
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>       break;
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>   }
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>   set ##AlreadyVoted, 1; // Player has already voted. Setting global account variable ##AlreadyVoted to 1.
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>   mes &quot;Thank you for your vote.&quot;;
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>   mes &quot;These are the current results:&quot;;
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>   mes &quot;Yes : &quot;+$Poll_Yes+&quot;/&quot;+ ($Poll_Yes + $Poll_No) +&quot; votes (&quot;+ (($Poll_Yes * 100)/($Poll_Yes + $Poll_No)) +&quot;%).&quot;;
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>   mes &quot;Yes : &quot;+$Poll_No+&quot;/&quot;+ ($Poll_Yes + $Poll_No) +&quot; votes (&quot;+ (($Poll_No * 100)/($Poll_Yes + $Poll_No)) +&quot;%).&quot;;
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a>   close;
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a>}
+</span></code></pre></div>
+<h3 id="account-variables">Account Variables<a class="headerlink" href="#account-variables" title="Permanent link">&para;</a></h3>
+<h4 id="details_2">Details<a class="headerlink" href="#details_2" title="Permanent link">&para;</a></h4>
+<p>Account variables work in a similar way as global account variables, and also have the same restrictions.<br />
+It connects a value to a player's account, which can be useful for a Vote NPC, or a quest NPC that a player is only allowed to do once.<br />
+Whereas a global account variable is the same for each mapserver, if you have a setup with multiple mapservers and a single login server, a normal account variable will contain different values for each mapserver.<br />
+The account variable does not support the temporal prefix (@) nor the array.<br />
+This means that they are less dynamic and always survive a server restart.</p>
+<p>The local account variable is stored in the table called <code>acc_reg_num</code> for numeric entries and <code>acc_reg_str</code> for string related entries.  </p>
+<p>The rumours are that it is possible to alter a variable without using NPC commands.<br />
+However, the entire account needs to be offline and out of the memory to make it so that changing it has any effect.<br />
+If you change the value of a account variable and there is a character online of that account, then your new value will be overwritten in time by the saving routine of the server.</p>
+<p>The prefix of an account variable is <code>#</code>.</p>
+<h4 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h4>
+<p>The account variable is, just like the global account variable, very suited for a voting NPC.<br />
+Especially when you only have one mapserver tied to your login server.<br />
+Because this setup is very common, the normal account variable is often used.<br />
+Also, even if you have multiple mapservers, then you might want to allow players to do the same quest on each mapserver, so that they can have the reward(s) on all the mapservers.<br />
+To keep it easy, here is the voting NPC again, only with normal account variables.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>prontera,147,177,7 script  Poll    116,{
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>   if (#AlreadyVoted) { // Account has already voted on a mapserver.
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>       mes &quot;These are the current results:&quot;;
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>       mes &quot;Yes : &quot;+$Poll_Yes+&quot;/&quot;+ ($Poll_Yes + $Poll_No) +&quot; votes (&quot;+ (($Poll_Yes * 100)/($Poll_Yes + $Poll_No)) +&quot;%).&quot;;
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>       mes &quot;Yes : &quot;+$Poll_No+&quot;/&quot;+ ($Poll_Yes + $Poll_No) +&quot; votes (&quot;+ (($Poll_No * 100)/($Poll_Yes + $Poll_No)) +&quot;%).&quot;;
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>       close;
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>   }
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>   mes &quot;Poll of today:&quot;;
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>   mes &quot;Do you like this server?&quot;;
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>   next;
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>   switch(select(&quot;Yes&quot;,&quot;No&quot;)) {
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>   case 1: // Voted Yes.
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>       set $Poll_Yes, $Poll_Yes + 1;
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>       break;
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>   case 2: // Voted No.
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>       set $Poll_No, $Poll_No + 1;
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>       break;
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>   }
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>   set #AlreadyVoted, 1; // Player has already voted. Setting account variable #AlreadyVoted to 1.
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>   mes &quot;Thank you for your vote.&quot;;
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>   mes &quot;These are the current results:&quot;;
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>   mes &quot;Yes : &quot;+$Poll_Yes+&quot;/&quot;+ ($Poll_Yes + $Poll_No) +&quot; votes (&quot;+ (($Poll_Yes * 100)/($Poll_Yes + $Poll_No)) +&quot;%).&quot;;
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>   mes &quot;Yes : &quot;+$Poll_No+&quot;/&quot;+ ($Poll_Yes + $Poll_No) +&quot; votes (&quot;+ (($Poll_No * 100)/($Poll_Yes + $Poll_No)) +&quot;%).&quot;;
+</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a>   close;
+</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a>}
+</span></code></pre></div></p>
+<h3 id="player-variables">Player Variables<a class="headerlink" href="#player-variables" title="Permanent link">&para;</a></h3>
+<h4 id="details_3">Details<a class="headerlink" href="#details_3" title="Permanent link">&para;</a></h4>
+<p>Player variables are a type of variable that can only be accessed by the player who is using the script.<br />
+The player variable supports the temporal tag, and also supports arrays, but only in combination with the temporal tag. So, <code>var[]</code> will not work, but <code>@var[]</code> will work.<br />
+When you store a value in <code>var$</code> for PlayerA, it will have a different value than the contents of <code>var$</code> for PlayerB.<br />
+This comes in handy when you are writing a quest and need to keep track of the progress.<br />
+For example, when a player accepted a quest, you can set a variable named <code>quest_progress</code> to 1.<br />
+When he finishes the next part, you can set it to 2, etc. etc.<br />
+Permanent player variables are also the way to deny future access to a NPC or quest.<br />
+Simply set a permanent player variable to a certain value at the end of the NPC or quest, and check for that value at the start of the quest.<br />
+Temporal player variables used to be widely used, and still are in the older revisions.<br />
+Nowadays it has become almost completely obselete though, due to the temporal NPC variable.<br />
+There are still some uses for it though.<br />
+For example, if you temporarely want to store a value for a player and use it at another NPC as well.</p>
+<p>Permanent player variables are stored in the table <code>char_reg_num</code> for numeric entries and <code>char_reg_str</code> for string related entries.<br />
+The temporal player variable is directly stored in the memory.</p>
+<p>You are able to manipulate the value of a permanent player variable without using script commands.<br />
+Simply make sure the character of which the variable is, is offline.<br />
+Of course, this does not apply for a temporal player variable.</p>
+<p>Player variables have no prefix.</p>
+<h4 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">&para;</a></h4>
+<p>A simple example of the usage of a permanent player variable, is a one time freebee giver.<br />
+After the freebee has been given, the variable is set and when the player talks to the NPC again, it will check for this and denies access.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>prontera,147,177,7 script  Freebee Giver   116,{
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>   if (GotFreebee) { // If the permanent player variable GotFreebee is not 0, then do what is inside the { }.
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>       mes &quot;You have already gotten the freebee.&quot;;
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>   } else {
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>       mes &quot;Welcome to hour server.&quot;;
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>       mes &quot;To show our gratitude, here is a one time free item.&quot;;
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>       next;
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>       getitem](getitem) 999,1;
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>       set GotFreebee, 1; // Item given, sets permanent player variable GotFreebee to 1.
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>       mes &quot;Have fun.&quot;;
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>   }
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>   close;
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>}
+</span></code></pre></div>
+An example of using a temporal variable, is an interactive NPC system, responding to a random mood of a player.  </p>
+<p>It can look like this:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>-  script  mood    -1,{
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>OnPCLoginEvent:
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>   set @mood, rand](rand)(3); // 0 == happy, 1 == sad, 2 == grumpy, 3 == in love.
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>   setarray](setarray) @moodtxt$[0], &quot;happy&quot;, &quot;sad&quot;, &quot;grumpy&quot;, &quot;in love&quot;;
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>   dispbottom](dispbottom) &quot;You feel &quot;+@moodtxt$[@mood]+&quot; today.&quot;;
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>   end;
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>}
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>prontera,147,177,7 script  Random Person   116,{
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>   switch(@mood) { // Determine the setting of @mood.
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>   case 0: // happy
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>       mes &quot;Oh my, we are cheerful today, aren&#39;t we!&quot;;
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>       break;
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>   case 1: // sad
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>       mes &quot;Why are you so sad?&quot;;
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>       mes &quot;Here, this might cheer you up.&quot;;
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>       close2;
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>       percentheal](percentheal) 100,100;
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>       break;
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>   case 2: // grumpy
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>       mes &quot;Come on, cheer up. It&#39;s a nice day today.&quot;;
+</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>       break;
+</span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a>   case 3: // in love
+</span><span id="__span-18-23"><a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a>       mes &quot;Wow, did you find that one person? Cool!&quot;;
+</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a>       break;
+</span><span id="__span-18-25"><a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a>   }
+</span><span id="__span-18-26"><a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a>   close;
+</span><span id="__span-18-27"><a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a>}
+</span><span id="__span-18-28"><a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a>prontera,147,175,7 script  Grumpy Person   116,{
+</span><span id="__span-18-29"><a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a>   if (@mood != 2) { // Only wants to talk to another grumpy person.
+</span><span id="__span-18-30"><a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a>       mes &quot;Go away!&quot;;
+</span><span id="__span-18-31"><a id="__codelineno-18-31" name="__codelineno-18-31" href="#__codelineno-18-31"></a>       close;
+</span><span id="__span-18-32"><a id="__codelineno-18-32" name="__codelineno-18-32" href="#__codelineno-18-32"></a>   }
+</span><span id="__span-18-33"><a id="__codelineno-18-33" name="__codelineno-18-33" href="#__codelineno-18-33"></a>   mes &quot;What are you doing here?&quot;;
+</span><span id="__span-18-34"><a id="__codelineno-18-34" name="__codelineno-18-34" href="#__codelineno-18-34"></a>   next;
+</span><span id="__span-18-35"><a id="__codelineno-18-35" name="__codelineno-18-35" href="#__codelineno-18-35"></a>   mes strcharinfo](strcharinfo)(0);
+</span><span id="__span-18-36"><a id="__codelineno-18-36" name="__codelineno-18-36" href="#__codelineno-18-36"></a>   mes &quot;Go away!&quot;;
+</span><span id="__span-18-37"><a id="__codelineno-18-37" name="__codelineno-18-37" href="#__codelineno-18-37"></a>   next;
+</span><span id="__span-18-38"><a id="__codelineno-18-38" name="__codelineno-18-38" href="#__codelineno-18-38"></a>   mes &quot;No, you go away!&quot;;
+</span><span id="__span-18-39"><a id="__codelineno-18-39" name="__codelineno-18-39" href="#__codelineno-18-39"></a>   next;
+</span><span id="__span-18-40"><a id="__codelineno-18-40" name="__codelineno-18-40" href="#__codelineno-18-40"></a>   // ... (rest of NPC)
+</span><span id="__span-18-41"><a id="__codelineno-18-41" name="__codelineno-18-41" href="#__codelineno-18-41"></a>   close](close)
+</span><span id="__span-18-42"><a id="__codelineno-18-42" name="__codelineno-18-42" href="#__codelineno-18-42"></a>}
+</span></code></pre></div></p>
+<h3 id="npc-variables">NPC Variables<a class="headerlink" href="#npc-variables" title="Permanent link">&para;</a></h3>
+<h4 id="details_4">Details<a class="headerlink" href="#details_4" title="Permanent link">&para;</a></h4>
+<p>NPC variables support, just like global variables, the temporal prefix as well as the array postfix.<br />
+They aren't in existence for that long yet, but are already widely used.<br />
+The reason for this, is that the temporal NPC variable is a true temporal variable.<br />
+It is unique per player per NPC, until the close; or end; command. (With the exception of attachrid, making it not unique per player.)<br />
+This means it can be used to temporary store a value, or an array or whatever to make coding easier for you.<br />
+The permanent NPC variable is not as permanent as it may sound at first.<br />
+It is used to store a variable per NPC. This variable is accessible by any player that uses that NPC.<br />
+However, on server restart, the value of that variable is lost. NPCs are capable of requesting the value of a permanent NPC variable owned by another NPC.<br />
+For this, the <code>getvariableofnpc</code> command is used, which will be explained further down in this article.<br />
+Permanent NPC variables can be used in logging systems or for example a racing event.<br />
+That is, if you do not want to waste global variables.</p>
+<p>All the NPC variables are directly stored in the memory, and are therefor not editable by anything else besides script commands.</p>
+<p>The prefix for a NPC variable is <code>.</code>.</p>
+<h4 id="example_4">Example<a class="headerlink" href="#example_4" title="Permanent link">&para;</a></h4>
+<p>Temporal NPC variables are widely used to temporary save a value.<br />
+This can make customizing your script easier.  </p>
+<p>For example, you can store the NPC name in a temporal NPC variable, like shown in the script beneath:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>prontera,147,177,7 script  Random Person   116,{
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>   set .@name$, &quot;^FF0000&quot;; // Setting the color, red in this case.
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>   set .@name$, .@name$ + &quot;Sir Eduard&quot;; // Setting the name of the NPC
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>   set .@name$, &quot;[&quot;+.@name$+&quot;^000000]&quot;; // Finalizing the name. It will now show: &quot;[Sir Eduard]&quot;, where Sir Eduard is written in red.
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>   mes .@name$; // Display Name
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>   mes &quot;Hello there.&quot;;
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>   mes &quot;Welcome to our server.&quot;;
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>   next;
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>   mes .@name$; // Display Name
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>   mes &quot;I hope you will enjoy your stay here.&quot;;
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>   mes &quot;We have a lovely fountain at the center, as well as some beautiful kafra spread out through the town.&quot;;
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>   next;
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>   mes .@name$; // Display Name
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>   mes &quot;So, feel free to look around.&quot;;
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>   mes &quot;And have a nice day.&quot;;
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>   close;
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>}
+</span></code></pre></div>
+All you have to do now to change the name being displayed is changing "Sir Eduard" into something else.<br />
+In larger scripts, this means that you do not have to edit the name at 100+ places.<br />
+The same applies for the color, which can be changed in the first line.</p>
+<p>A short example of a permanent variable might be this 'logging' NPC:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>prontera,147,177,7 script  Random Person   116,{
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>   mes &quot;Hello!&quot;;
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>   mes &quot;Do you have any gossip?&quot;;
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>   next;
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>   if (.LastPerson$ != &quot;&quot;) { // If there is a name stored, do what is inside the { }
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>       mes .LastPerson$ + &quot; had some really nice gossip.&quot;;
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>       next;
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>   }
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>   set .LastPerson$, strcharinfo](strcharinfo)(0); // Set the current player&#39;s name as the last player&#39;s name.
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>   mes &quot;Aha, I see.&quot;;
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>   mes &quot;Thank you for this new info.&quot;;
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>   mes &quot;I should tell it to my friends right away.&quot;;
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>   mes &quot;Good bye.&quot;;
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>   close;
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>}
+</span></code></pre></div></p>
+<h2 id="special-commands">Special Commands<a class="headerlink" href="#special-commands" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="input">Input<a class="headerlink" href="#input" title="Permanent link">&para;</a></h3>
+<p>Input is the most basic command to get a player to input a value and store it in a variable.<br />
+Input itself has some safeguards placed inside that prevent entering faulty data.  </p>
+<p>The format for input is:</p>
+<ul>
+<li><code>input &lt;variable&gt;;</code></li>
+</ul>
+<p>Despite it seems that you can enter anything in the input box as a player, this is not the case. Let's review the following two cases:</p>
+<p>1. <code>input @name$;</code><br />
+  2. <code>input @number;</code></p>
+<p>The first one allows you to enter a string.<br />
+A person can still input a number, but it will be stored as if it was a string.<br />
+The second one allows you to enter a number.<br />
+If a person enters a negative number, it will store 0.<br />
+If the person tries to enter a string, or a letter, it will also store 0.</p>
+<h3 id="getd-setd">Getd &amp; Setd<a class="headerlink" href="#getd-setd" title="Permanent link">&para;</a></h3>
+<p>Getd and Setd are a couple of special commands.<br />
+They allow the use of dynamically named variables, as well as a way to cheat and make multi-dimensional variables.</p>
+<p>Their format is like this:</p>
+<ul>
+<li><code>getd "Variable Name";</code></li>
+<li><code>setd "variable name",&lt;value&gt;;</code></li>
+</ul>
+<p>The most common use of getd and setd is in combination with global variables.<br />
+This is because you have an infinite amount of global variables, whereas account and player variables are limited in their number.<br />
+Also, global variables can survive a restart of the server of course.<br />
+Let's just use some examples to make it clear what their power is.</p>
+<h4 id="simulating-guild-variables">Simulating Guild Variables<a class="headerlink" href="#simulating-guild-variables" title="Permanent link">&para;</a></h4>
+<p>Guild Variables do not exist, yet it can be needed to store guild variables, when you want to do a ranking of some sort.<br />
+The following example is a snippet from gldfunc_ev_agit.txt, and stores the amount of times a guild has captured a castle.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>set .@NameOfGuildVar$, &quot;$CastCapt&quot;+getcharid(2); 
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>// If your guild ID would be 204, the contents of 
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>// .@NameOfGuildVar$ would be: &quot;$CastCapt204&quot;
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>set .@Score, getd(.@NameOfGuildVar$); // Retreive the current score.
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>set .@Score, .@Score + 1; // Add one to it.
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>setd .@NameOfGuildVar$, .@Score; // Put in the new score.
+</span></code></pre></div>
+Of course, the same can be done to simulate Party Variables, which also officially do not exist.</p>
+<h4 id="simulating-multidimensional-arrays">Simulating Multidimensional Arrays<a class="headerlink" href="#simulating-multidimensional-arrays" title="Permanent link">&para;</a></h4>
+<p>Now, let's say you know your stuff, and really are used to using arrays.<br />
+Then you might want to consider simulating multi-dimensional arrays.<br />
+This snippet will use the <code>for</code> command.<br />
+If you do not know how to use it, it is best to skip this example.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>// Example of iterating the 3-dimensional array $@array[100,100,100].
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>for (set .@i, 0; .@i &lt; 100; set .@i, .@i + 1) {
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>   for(set .@j, 0; .@j &lt; 100; set .@j, .@j + 1) {
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>       for(set .@k, 0; .@k &lt; 100; set .@k, .@k + 1) {
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>           set .@varname$, &quot;$@array&quot;+.@i+&quot;_&quot;+.@j+&quot;[&quot;+.@k+&quot;]&quot;; 
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>           // Let&#39;s say .@i is 50, .@j is 22 and .@k is 95. Then this will be in .@varname$:
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>           // $@array50_22[95]
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>           if(getd(.@varname$) == 5) set .@FivesFound, .@FivesFound + 1;
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>       }
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>   }
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>}
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>announce &quot;I have found &quot;+.@FivesFound+&quot; occurances of 5 in your multidimensional array.&quot;,bc_all;
+</span></code></pre></div></p>
+<h3 id="getvariableofnpc">Getvariableofnpc<a class="headerlink" href="#getvariableofnpc" title="Permanent link">&para;</a></h3>
+<p>Getvariableofnpc is a method to get the value of a permanent NPC variable of another NPC.  </p>
+<p>The official format is like this:</p>
+<ul>
+<li><code>getvariableofnpc &lt;Variable Name&gt;,"NPC Name";</code></li>
+</ul>
+<p>It's uses can vary, but from what I've seen until now is that it is mainly used to sync several NPCs or to make checks in a global temporal unlocking quest.<br />
+To sync a variable NPC with the value of a variable of another NPC, you could use this line:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>set .v,getvariableofnpc(.var,&quot;A NPC&quot;); 
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>// Retreives value of .var of the NPC called &quot;A NPC&quot;
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>// and puts the found value in .v of this NPC.
+</span></code></pre></div>
+A global temporal unlocking quest can be like this:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>prontera,147,177,7 script  PvP Warper  116,{
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>   if(getvariableofnpc(.unlocked,&quot;PvP Unlocker&quot;)) {
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>       mes &quot;Want to go to the PvP room?&quot;;
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>       next;
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>       if(select(&quot;Yes&quot;,&quot;No&quot;) == 2) {
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>           mes &quot;Ok, guess not.&quot;;
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>           mes &quot;Good bye.&quot;;
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>           close;
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>       }
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>       close2;
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>       warp &quot;pvp_n_1-1&quot;,0,0;
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>       end;
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>   }
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>   mes &quot;No one has opened the PvP room yet.&quot;;
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>   mes &quot;At least one person needs to visit the ^FF0000PvP Unlocker^000000, and help him to open up PvP.&quot;;
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>   close;
+</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>}
+</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>prontera,147,175,7 script  PvP Unlocker    116,{
+</span><span id="__span-24-19"><a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>   if(.unlocked) {
+</span><span id="__span-24-20"><a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a>       mes &quot;To enter the PvP room, talk to the ^FF0000PvP Warper^000000.&quot;;
+</span><span id="__span-24-21"><a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a>       close;
+</span><span id="__span-24-22"><a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a>   }
+</span><span id="__span-24-23"><a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a>   if(countitem(512) &lt; 1) {
+</span><span id="__span-24-24"><a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a>       mes &quot;I will not open the PvP room until I get an apple!&quot;;
+</span><span id="__span-24-25"><a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a>       close;
+</span><span id="__span-24-26"><a id="__codelineno-24-26" name="__codelineno-24-26" href="#__codelineno-24-26"></a>   }
+</span><span id="__span-24-27"><a id="__codelineno-24-27" name="__codelineno-24-27" href="#__codelineno-24-27"></a>   delitem 512, 1;
+</span><span id="__span-24-28"><a id="__codelineno-24-28" name="__codelineno-24-28" href="#__codelineno-24-28"></a>   mes &quot;Thank you for that juicy apple.&quot;;
+</span><span id="__span-24-29"><a id="__codelineno-24-29" name="__codelineno-24-29" href="#__codelineno-24-29"></a>   mes &quot;I will open the PvP room now.&quot;;
+</span><span id="__span-24-30"><a id="__codelineno-24-30" name="__codelineno-24-30" href="#__codelineno-24-30"></a>   mes &quot;Enjoy.&quot;;
+</span><span id="__span-24-31"><a id="__codelineno-24-31" name="__codelineno-24-31" href="#__codelineno-24-31"></a>   set .unlocked, 1;
+</span><span id="__span-24-32"><a id="__codelineno-24-32" name="__codelineno-24-32" href="#__codelineno-24-32"></a>   close;
+</span><span id="__span-24-33"><a id="__codelineno-24-33" name="__codelineno-24-33" href="#__codelineno-24-33"></a>}
+</span></code></pre></div></p>
+<h2 id="other-important-info">Other Important Info<a class="headerlink" href="#other-important-info" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="naming-your-variables">Naming your Variables<a class="headerlink" href="#naming-your-variables" title="Permanent link">&para;</a></h3>
+<h4 id="general-restrictions">General Restrictions<a class="headerlink" href="#general-restrictions" title="Permanent link">&para;</a></h4>
+<p>Just like any other scripting or coding language, variable names have certain restrictions.<br />
+Some things are simply not accepted, and some things are accepted, but really bad to do.</p>
+<ul>
+<li>A variable name must always start with a letter after any prefix, if it is there.</li>
+<li>It also cannot have any arithmetic operators. (This means, none of the following signs: +, -, /, * and any other math sign.)</li>
+<li>Brackets of any kind are also not allowed, excluding the array postfix of course.</li>
+<li>Other restrictions to the variable are the length of the name, it is not allowed to succeed 23 characters.</li>
+</ul>
+<p>Basically, this all means, that the name part can only contain the following characters: a~z, A~Z, 0~9 and _</p>
+<p>Lot's of restrictions, huh?<br />
+Well, most of the above restrictions cause your mapserver to be mad at you.<br />
+The other possible restrictions are harder to find, and can make the mapserver even more mad at you, as well as giving unexpected results.<br />
+These restrictions are shown below.</p>
+<h4 id="special-restrictions">Special Restrictions<a class="headerlink" href="#special-restrictions" title="Permanent link">&para;</a></h4>
+<p>Like said above, there are some special restrictions.  </p>
+<p>Here is the short overview:</p>
+<ul>
+<li>Never use a command name as a variable name.</li>
+<li>Never use a label, subroutine or function name as a variable name.</li>
+<li>To be safe, never use the same variable name for different prefixes.</li>
+<li>Never use the same variable name to store an integer or a string.</li>
+</ul>
+<p>A short explanation of this is in order.<br />
+When you name your variable: <code>mes</code> (the message command), then this will override any mes command.<br />
+The server will think that in all those cases, <code>mes</code> is not a command but a variable name.<br />
+This will result in roughly, uhm, 88120+ errors (no kidding).<br />
+The problem with this is though, that those errors aren't the real errors.<br />
+The real error, set mes, 1; for example, isn't even shown.<br />
+The exact same thing occurs when the name of your variable matches the name of a label, function or subroutine.<br />
+When you use the same name, but with a different prefix, your server can start acting weird, and can give unexpected results.<br />
+This is not always, but it can be common. So, when you are using a variable like $@temp and @temp, it is wise to change one of the two names.<br />
+Just to be sure. If you have two variables named the same, only one has the $-postfix (string), then the mapserver might give some errors.<br />
+In any way, results will be unexpected and thus weird.<br />
+So, if you use for example $PartyWon to store the party id and <span class="arithmatex">\(PartyWon\)</span> to store the party name, then things will go bad. It is best to change one of the two in something else.<br />
+Perhaps like this: <code>$PartyWon_Id</code> and <code>$PartyWon_Name$</code>.</p>
+<h4 id="reserved-names">Reserved Names<a class="headerlink" href="#reserved-names" title="Permanent link">&para;</a></h4>
+<p>Some variable names are reserved by default.<br />
+You should not touch these unless you know what you are doing.<br />
+Why? Well, changing them, may mean changing things to the invoking player, depending on the kind of reserved name.</p>
+<h5 id="constants">Constants<a class="headerlink" href="#constants" title="Permanent link">&para;</a></h5>
+<p>One kind of reserved names are constants.<br />
+These values are loaded upon start-up of the map-server and remain constant during their entire life-time, means, they cannot be changed by any means during run-time.<br />
+Constants are stored inside <strong>src/map/script_constants.hpp</strong> and are all lines, where a constant name is followed by only one number, whether decimal or hexadecimal.</p>
+<p>Examples include:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Job_Archer
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>EAJ_SUPER_NOVICE
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>cell_chkreach
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>bUnstripableShield
+</span></code></pre></div></p>
+<h5 id="parameter-constants">Parameter Constants<a class="headerlink" href="#parameter-constants" title="Permanent link">&para;</a></h5>
+<p>These behave almost like variables with side-effect.<br />
+They are called constants, because they correspond to an constant internal value, which describes their effect.<br />
+Like-wise the constants, these values are loaded upon start-up of the map-server from.<br />
+They are defined by lines with the constant name being followed by two numbers, the latter of them being always non-zero.</p>
+<p>When used inside scripts, their value is not always constant, but can change depending in context and time.<br />
+Some of them can be written as well, such as Zeny.</p>
+<p>Examples include:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Zeny
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>BaseLevel
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>Class
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>Weight
+</span></code></pre></div></p>
+<h4 id="word-of-advice">Word of Advice<a class="headerlink" href="#word-of-advice" title="Permanent link">&para;</a></h4>
+<p>When using permanent variables, and even with temporal variables, it is very wise to use some sort of tag.<br />
+This will make sure that your variable name is unique.<br />
+For example, if you have a godly equip quest, it is adviced to store the status in a variable named like: <code>GEQ_Status</code>. <code>GEQ_</code> is the tag, and stands for Godly Equip Quest.<br />
+This will make it unique compared to other variables.<br />
+Your variable names will become longer, yes, but it will prevent unknown or unexpected results.  </p>
+<p>Another example of tagging:
+Let's say you have a capture the flag event, run through NPCs, then prefix your variable names with CTF_.<br />
+So, some variables might be: <code>$CTF_ScoreTeam1</code>, <code>$CTF_ScoreTeam2</code>, etc. etc.<br />
+Also, please, keep in mind.<br />
+Variables are case sensitive, just like labels! So, <code>$dummy</code> is not the same as <code>$Dummy</code>.<br />
+Using both can produce unexpected results.</p>
+<h4 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h4>
+<p>Some examples of good and bad names.</p>
+<p>Good:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>$CTF_Winner$ // Winner of capture the flag
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>$CTF_Loser$ // Loser of capture the flag
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>$GQ_Winner$ // Winner of capture the flag
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>.npcname$ // Name of NPC. Using a permanent NPC variable will save memory space. (Increases CPU though.)
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>#SH_Item1 // Scavenger hunt, item 1.
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>#SH_Item2 // Scavenger hunt, item 2.
+</span></code></pre></div>
+Bad:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>@Zeny // Zeny is a reserved name.
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>rand // Rand is a command.
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>$1Team1 // Number as first character is not allowed.
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>@h-uy // - is an arithmetic operator, not allowed.
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>$winner and $winner$ // Mixed use of string and integer, bad.
+</span></code></pre></div></p>
+<h3 id="minima-and-maxima-of-variables">Minima and Maxima of Variables<a class="headerlink" href="#minima-and-maxima-of-variables" title="Permanent link">&para;</a></h3>
+<p>Variables are restricted in the amounts that they can store, as well as how many variables you can have of a certain kind.<br />
+This section will deal with those restrictions, and even some ways to alter them.</p>
+<p><strong>Maximum Values</strong><br />
+Integer: Can contain a value from -2147483648 to 2147483647 (Signed integer)</p>
+<ul>
+<li>String: Unlimited, some script commands, such as npctalk, are not able to deal with very long strings though.</li>
+<li>Array: Can have a maximum of 2.1b elements (starting with index 0)</li>
+</ul>
+<p><strong>Maximum Different Variables</strong><br />
+Global: Unlimited</p>
+<ul>
+<li>Global Account: 16</li>
+<li>Account: 64</li>
+<li>Player: 256 (Temporal might be unlimited)</li>
+<li>NPC: Unlimited</li>
+</ul>
+<p>Please note, that <em>unlimited</em> is actually still limited; by available memory and disk capacity (permanent variables).</p>
+<p><strong>Changing Maximum Different Variables</strong><br />
+<u>Before doing this, make sure you backup everything, and you know how to do a clean recompile.</u><br />
+To change the amount of variables you can use, all you have to do is change some constants in <code>src/common/mmo.hpp</code>.</p>
+<p>After you have opened the file, you have to change the following things:</p>
+<p>Increasing Max Number of Global Account Variables   - Change <code>ACCOUNT_REG2_NUM</code><br />
+Increasing Max Number of Account Variables          - Change <code>ACCOUNT_REG_NUM</code><br />
+Increasing Max Number of Player Variables           - Change <code>GLOBAL_REG_NUM</code></p>
+<p>Also, when changing any of those values, you might need to change <code>MAX_REG_NUM</code>.<br />
+<code>MAX_REG_NUM</code> should contain the highest value of any of the other three settings.<br />
+Let's assume you want to have 128 Player Variables.<br />
+Then change the 96 behind GLOBAL_REG_NUM to 128.<br />
+Also, this is higher than the previous value of <code>MAX_REG_NUM</code>, so change that to 128 as well. Save the file, do a make clean and compile again, and you are done.</p>
+<p>Let's assume you want to change the amount of normal account variables to 80.<br />
+Find <code>ACCOUNT_REG_NUM</code> and change the 64 behind it to 80.<br />
+<code>MAX_REG_NUM</code> contains 96 (or 128 if you take the previous example).<br />
+This is higher than 80, so you do not have to change it.<br />
+Save the file, and do a clean recompile again, and you are done.</p>
+<h3 id="alive-time">Alive Time<a class="headerlink" href="#alive-time" title="Permanent link">&para;</a></h3>
+<p>Some variables are never erased, others are cleaned up after certain events.<br />
+A rule of thumb is, that variables that are only stored in memory are always erased on server restart or crash.<br />
+Variables which are written to the SQL database or the save folder, survive restarting the mapserver.<br />
+When it comes to the alive time of a variable, there is no difference between integer, string or array variables.<br />
+There is only a difference between temporal and permanent.<br />
+The following schedule displays when a variable gets erased from memory and is unrecoverable.<br />
+Please note, that if a variable is set to 0 (integer) or "" (string), that the variable is unset as well, and in a sense, erased as well.</p>
+<table>
+<thead>
+<tr>
+<th>Prefix</th>
+<th>Name</th>
+<th>Alive Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>none</em></td>
+<td>Player</td>
+<td>Erased on Server Restart</td>
+</tr>
+<tr>
+<td><code>#</code></td>
+<td>Account</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><code>##</code></td>
+<td>Global Account</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>NPC</td>
+<td>Erased on NPC End</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>Global</td>
+<td>Erased on Server Restart</td>
+</tr>
+</tbody>
+</table>
+<p>Notes:</p>
+<ul>
+<li>Server Restart is equal to anything that makes the mapserver stop it's current session, including crashes.</li>
+<li>Global Account and Account variables do not have a Temporal version.</li>
+<li>Always Survives can still mean loss of data, if the server crashes/stops after such a variable was altered, but the periodical save process hasn't been executed yet.</li>
+<li>Erased on NPC End, means that the value of this variable is lost when the script finds the command "end;" or "close;".</li>
+<li>Like said above, unsetting a variable will also erase it from existance.</li>
+</ul>
+<h2 id="variable-related-errors">Variable Related Errors<a class="headerlink" href="#variable-related-errors" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="strint-and-intstr-errors">Str&amp;Int and Int&amp;Str Errors<a class="headerlink" href="#strint-and-intstr-errors" title="Permanent link">&para;</a></h3>
+<p>This specific error happens when you are comparing a String variable with an Integer variable, or when you want to add a String to an Integer variable.<br />
+This is often caused by a simply typo.<br />
+Just go over your code, and make sure that you didn't make any typos, and it should be fixed.</p>
+<p>Examples of what can cause this error:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>if(.@value == .@name$) // Will error, because .@value is an Integer. .@name$ is a String.
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>set .@value, &quot;Blaat&quot;; // Might error, because .@value is an Integer. &quot;Blaat&quot; is a String.
+</span></code></pre></div></p>
+<h3 id="no-rid-attached-error">No RID attached Error<a class="headerlink" href="#no-rid-attached-error" title="Permanent link">&para;</a></h3>
+<p>You get this error, when you want to change a player or account variable, while the player is not attached anymore to the NPC or script.<br />
+A script requires a so called RID to change a value that is connected to a player or an account.<br />
+You can manually attach an RID to a script, but you need to have an account id to do this.<br />
+To get an account id, you need to do a <code>getcharid(3,"Player's Name")</code> and use the result with attachrid.<br />
+Of course, for this, you will have to get a player name.</p>
+<p>If there is no way for you to have an RID attached, then it means that you are using the wrong variables. The following example demonstrates this:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>OnInit: // Runs when the server starts
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>   set StartUpTime, gettimetick(2); // This will give the no RID attached error.
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>   end;
+</span></code></pre></div>
+The reason this gives the error is that you want to store the current time in a player variable. But on the start up, there is no way for a player to be online, and even if, this script is triggered without invoking a player. The solution to this is to change StartUpTime into .StartUpTime, $StartUpTime or $@StartUpTime.</p>
+<h3 id="attachrid-giving-unexpected-values">Attachrid giving unexpected values<a class="headerlink" href="#attachrid-giving-unexpected-values" title="Permanent link">&para;</a></h3>
+<p>This is a common mistake, but not a real error as detected by the mapserver.<br />
+This problem can occur when using attachrid.</p>
+<p>Let's take the following snippet taken from an OnPCKillEvent as example:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>set Killer$, strcharinfo(0); // Setting Killers Name in Killer$
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>attachrid(getcharid(3,Killed)); // Attach to the person who got killed.
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>dispbottom &quot;You were killed by &quot;+Killer$;
+</span></code></pre></div>
+Q: What this part is supposed to do?<br />
+A: It should send a message to the person who got killed, saying who killed them.<br />
+Q: What goes wrong here?<br />
+A: The script will not display the name of the killer, or the player's own name.<br />
+In case you see the error, you might laugh at this, but it is a very common mistake.<br />
+The person who scripted this made a faulty assumption.<br />
+He thought that <code>Killer$</code> before the attachrid is the same as <code>Killer$</code> after the attachrid.<br />
+This is not the case. The <code>Killer$</code> before the attachrid is stored in player 1's account.<br />
+The <code>Killer$</code> after the attachrid is stored in player 2's account.<br />
+This means that they are not the same.</p>
+<p>Q: So what is the solution?<br />
+A: Use a NPC variable or a global variable instead.</p>
+<h3 id="variable-keeps-displaying-0-or">Variable keeps displaying 0 or ""<a class="headerlink" href="#variable-keeps-displaying-0-or" title="Permanent link">&para;</a></h3>
+<p>Also a common error with new scripters.</p>
+<p>Take the following snippet:</p>
+<p><code>set @name$, Patrick;</code></p>
+<p>A new scripter often types this when he/she wants to put the String "Patrick" inside <code>@name$</code>.<br />
+However, he/she forgot to put Patrick between a " and a ".<br />
+So, instead of storing the string "Patrick" inside <code>@name$</code>, the server will look up the value of the variable named Patrick, and stores that value inside <code>@name$</code>.<br />
+This can result in a 0 being stored or nothing at all in <code>@name$</code>.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="June 3, 2026 12:26:55 UTC"><span class="timeago" datetime="2026-06-03T12:26:55+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="June 3, 2026 12:26:55 UTC">2026-06-03</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../timers/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Timers">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Timers
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../menus/" class="md-footer__link md-footer__link--next" aria-label="Next: Menus">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Menus
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright(c) rAthena Development Team, 2011 - 2023
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/rathena/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://rathena.org/board/" target="_blank" rel="noopener" title="rathena.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 0C28.7 0 0 28.7 0 64v288c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/rathena/rathena/wiki/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="m640 51.2-.3 12.2c-28.1.8-45 15.8-55.8 40.3-25 57.8-103.3 240-155.3 358.6H415l-81.9-193.1c-32.5 63.6-68.3 130-99.2 193.1-.3.3-15 0-15-.3C172 352.3 122.8 243.4 75.8 133.4 64.4 106.7 26.4 63.4.2 63.7c0-3.1-.3-10-.3-14.2h161.9v13.9c-19.2 1.1-52.8 13.3-43.3 34.2 21.9 49.7 103.6 240.3 125.6 288.6 15-29.7 57.8-109.2 75.3-142.8-13.9-28.3-58.6-133.9-72.8-160-9.7-17.8-36.1-19.4-55.8-19.7V49.8l142.5.3v13.1c-19.4.6-38.1 7.8-29.4 26.1 18.9 40 30.6 68.1 48.1 104.7 5.6-10.8 34.7-69.4 48.1-100.8 8.9-20.6-3.9-28.6-38.6-29.4.3-3.6 0-10.3.3-13.6 44.4-.3 111.1-.3 123.1-.6v13.6c-22.5.8-45.8 12.8-58.1 31.7l-59.2 122.8c6.4 16.1 63.3 142.8 69.2 156.7L559.2 91.8c-8.6-23.1-36.4-28.1-47.2-28.3V49.6l127.8 1.1.2.5z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://discord.gg/rathena-96459614895226880" target="_blank" rel="noopener" title="discord.gg" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="../../js/timeago.min.js"></script>
+      
+        <script src="../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../javascripts/smoothScrolling.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1578 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="User Guides created by the rAthena community. These guides are generated from a Github repository and turned into an easy to use website.">
+      
+      
+        <meta name="author" content="rAthena Developement Team">
+      
+      
+        <link rel="canonical" href="https://rathena.github.io/user-guides/installing/mysql/">
+      
+      
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Introduction - rAthena User Guides</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="rAthena User Guides" class="md-header__button md-logo" aria-label="rAthena User Guides" data-md-component="logo">
+      
+  <img src="../../img/ra_user_guides_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            rAthena User Guides
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rathena/user-guides/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rathena/user-guides
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="rAthena User Guides" class="md-nav__button md-logo" aria-label="rAthena User Guides" data-md-component="logo">
+      
+  <img src="../../img/ra_user_guides_logo.png" alt="logo">
+
+    </a>
+    rAthena User Guides
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rathena/user-guides/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rathena/user-guides
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guides Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Installing rAthena
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Installing rAthena
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debian
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Configurations
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Configurations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/imports/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Imports
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Scripting
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Scripting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scripting/adding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adding Scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scripting/basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/rathena/rathena/blob/master/doc/script_commands.txt" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scripting/errors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview of Errors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scripting/tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tips and Tricks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scripting/mapflags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapflags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scripting/monster-spawn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Monster Spawns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    NPC
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            NPC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scripting/loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Loops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scripting/timers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scripting/variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scripting/menus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Menus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scripting/warp-points/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Warp Points
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scripting/shop-creation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scripting/woe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    War of Emperium
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MSVS Debugging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extensions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extensions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Links
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Links
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/rathena/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://rathena.org/board/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Forums
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://rathena.org/wiki/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wiki
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://discord.gg/kMeMXWEvSV" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Discord
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CONTRIBUTING/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contribute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-rathena-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure rAthena Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install MySQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql-workbench" class="md-nav__link">
+    <span class="md-ellipsis">
+      MySQL Workbench
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Installation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Database Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Configurations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#item_db-and-mob_db" class="md-nav__link">
+    <span class="md-ellipsis">
+      item_db and mob_db
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enabling-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enabling Logging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#increasing-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Increasing Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing MySQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-your-own-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up your own user
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-the-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing the Tables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+<p>This article will guide you through the installation and configuration stages of MySQL for your particular Operating System. What is a MySQL database? <a href="/wikipedia:MySQL" title="wikilink">MySQL</a> is a multi-user access database that stores a number of different kinds of information in scaleable tables. In layman's terms, it puts a bunch of stuff in charts for your server to read. rAthena no longer supports text based save files (for Accounts, Characters, etc.) and requires a MySQL database to create these save files.</p>
+<h2 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h2>
+<p>This guide will instruct you on installing MySQL on Windows Vista/7, although it should work relatively the same with Windows XP. This guide also assumes you have already <a href="/Installation_on_Windows" title="wikilink">installed your rAthena server</a>.
+<strong><big>Uninstallation Note</big></strong>
+Before continuing, it is important to note that if you make an error and decide to start again by uninstalling the MySQL database and software, that you make sure you do a <em>thorough</em> uninstallation, and then reboot Windows before trying again. A couple tips to make sure your uninstallation is thorough:</p>
+<ul>
+<li>Uninstall Workbench first</li>
+<li>Remove the MySQL database folders in your user folder. This is generally in:</li>
+</ul>
+<p><code>C:\Users\</code><YOUR_USER_NAME><code>\AppData\Roaming\MySQL</code></p>
+<p>and:</p>
+<p><code>C:\ProgramData\MySQL</code></p>
+<p>Just delete the whole folder.</p>
+<ul>
+<li>Run Administrative Tools -&gt; Services and look to make sure nothing MySQL related is running or set to run (because it shouldn't exist anymore)</li>
+<li>Go to the location on your hard drive you installed MySQL5 and Workbench and ensure everything is deleted.</li>
+</ul>
+<p>Delete the whole MySQL folder.</p>
+<ul>
+<li>Make sure you reboot.</li>
+<li>There is a Oracle made guide <a href="http://dev.mysql.com/doc/refman/5.1/en/windows-installer-uninstalling.html">here</a>, but it isn't necessarily thorough.</li>
+<li>If you still have hanging and crashing during the configuration wizard, you may have to create your root account manually. Do an internet search for this, as it varies by system. And continue afterwards at the "MySQL Workbench" section.</li>
+</ul>
+<h3 id="download">Download<a class="headerlink" href="#download" title="Permanent link">&para;</a></h3>
+<p>To install MySQL Server you will first need to download the package corresponding to your version of Windows. <a href="http://dev.mysql.com/downloads/mysql/">MySQL Community Server</a> is available for free and is exactly what is needed. Version 5.5 currently works well with rAthena and is recommended. <strong>ENSURE</strong> that you download the appropriate bit version (32 or 64) for your system, if you do not, you will receive errors during the execution wizard. This software installs the server on your computer that stores the data files and tables. Although alone, without prior knowledge of MySQL it is very difficult to operate and configure your servers data. That is why you will need MySQL Workbench.
+<a href="http://dev.mysql.com/downloads/workbench/5.2.html">MySQL Workbench</a> is a tool for viewing your MySQL database in a GUI environment. As said, it is not required but very beneficial; in addition, it is required by this guide. To be able to install and run MySQL Workbench 5.2 your System also needs to have the libraries listed below installed. The listed items are provided as links to the corresponding download pages where you can fetch the necessary files.</p>
+<p><a href="http://www.microsoft.com/download/en/details.aspx?id=17113">Microsoft .NET Framework 4 Client Profile</a>
+<a href="http://www.microsoft.com/download/en/details.aspx?id=5555">Microsoft Visual C++ 2010 Redistributable Package (x86)</a></p>
+<h3 id="configure-rathena-files">Configure rAthena Files<a class="headerlink" href="#configure-rathena-files" title="Permanent link">&para;</a></h3>
+<p>Before you begin with your MySQL installation, you need to setup your server conf files to be ready for the database you are about to install. I choose to do this in advance, because it allows you to have the usernames and passwords ready for use so you don't have to go back and set them, and you can just run your server afterwards with everything all ready.</p>
+<ul>
+<li>Open "inter_athena.conf", and change sql.db_password, char_server_pw, map_server_pw and log_db_pw to a password of your choice. For this guide we will use the password "Fish". Passwords are case sensitive. This is not a strong password, and you should use a better one, this is just an example. Also change log_db_db to "log". All other fields should be let alone, the default username and port functions fine. (<a href="http://imageshack.us/a/img546/9444/interathena.jpg">Image</a>)</li>
+<li>Open "map_athena.conf" and "char_athena.conf" and locate the server communication passwords:</li>
+</ul>
+<p><code>userid: s1</code>
+<code>passwd: p1</code></p>
+<p>Change these to whatever you want, but something secure. For this guide we will use "FishUser" and "FishPassword"</p>
+<p><code>userid: FishUser</code>
+<code>passwd: FishPassword</code></p>
+<p>Make sure these are the same in both map_athena and char_athena otherwise you will have errors.</p>
+<ul>
+<li>There are additional SQL configuration features in "login_athena.conf" that you should take a look at now, to enable for use (such as IPban features).</li>
+<li>Write all these passwords down or keep the files open for reference and continue to your MySQL installation!</li>
+</ul>
+<h3 id="install-mysql">Install MySQL<a class="headerlink" href="#install-mysql" title="Permanent link">&para;</a></h3>
+<p>First, you will need to install the MySQL server where all the data will be stored. After downloading the <a href="http://dev.mysql.com/downloads/mysql/">MySQL Community Server</a>, run the installer and use the following steps (<em>for this installation version 5.5.28 was used</em>).</p>
+<ol>
+<li>Click next and accept the license agreement.</li>
+<li>Click "Typical" for Setup Type; then click "Install" (you may have to allow UAC control from windows).</li>
+<li>Click "Next" when the MySQL Enterprise tool pops up, this is a simple advertisement.</li>
+<li>After installation is finished the completion screen with a "Finish" button will show, make sure you have "Launch the MySQL Instance Configuration Wizard" <strong>CHECKED</strong>! The configuration wizard will allow you to setup the server to accept the kind of data you want and by setting it up now you will most likely never have to configure it again.</li>
+<li>Click "Next" at the first screen, and then click "<a href="http://i.imgur.com/YlMPbm8.png">Standard Configuration</a>" and hit "Next".</li>
+<li>Check both "Install As Windows Service" and "Include Bin Directory in Windows PATH" for the Service Name, name it "<em>MySQL5</em>" and ensure "Launch the MySQL Server Automatically is <strong>CHECKED</strong>. (<a href="http://i.imgur.com/onQiIsh.png">Image</a>)</li>
+<li>On the next screen, you will need to select the root password. This password is very important as you will <strong>never be able to retrieve it</strong> so make sure you write it down somewhere safe. The "root" access to your MySQL database can pretty much do anything to your data, so make sure you keep this information safe. If you want to enable root access from a remote machine, check the included box. You probably won't need to enable that unless you know what you're doing. Keep the password you selected available for now.</li>
+<li>On the next screen just click "Execute" to run the configuration unless you want to go back and change something.</li>
+<li>Once it is finished, hit "Finish" to close the wizard. It will report if there are any errors (there shouldn't be).</li>
+</ol>
+<h3 id="mysql-workbench">MySQL Workbench<a class="headerlink" href="#mysql-workbench" title="Permanent link">&para;</a></h3>
+<p>Next it is time to install the MySQL Workbench application. This application will allow you to edit your database and prepare it for eAthena, as well as perform maintenance in the future.</p>
+<ol>
+<li>Run the MySQL Workbench installer and click "Next" on the first screen.</li>
+<li>Choose your installation directory. The default directory should be fine. Click "Next" to proceed.</li>
+<li>Select "Complete" and click "Next", and then install, granting permissions when prompted.</li>
+<li>Once the wizard is completed, hit "Finish" and the default Workbench screen will come up.</li>
+<li>This is called the Home Screen and should look like <a href="http://i.imgur.com/iuSqaFC.png">this</a>.</li>
+<li>You need to create a new server instance to host your files for rAthena to access. Select "New Server Instance" under the "Server Administration" section.</li>
+<li>A window will pop up, select "localhost" and click "Next". This installs the instance on the localhost, which is your computer.</li>
+<li>On the next screen, leave everything the default. Where it says "Username" leave that at root, so you have root access. Under that, click "<a href="http://i.imgur.com/3WD8m8b.png">Store in Vault</a>" and enter the root password from earlier (it's alright to copy/paste the password if you put it in a text file).</li>
+<li>After it has successfully tested the database connection, click "Next"</li>
+<li>On the next screen, leave the configuration settings defaulted. It should point to the existing service (MySQL5 from earlier) and the default path is fine. (<a href="http://imageshack.us/a/img600/1089/defaultwindowsconfig.jpg">Image</a>)</li>
+<li>On the next screen hit "Next" and then "Continue" on the popup. Leave the Server Instance with the default name of</li>
+</ol>
+<p><code>mysqld@localhost</code></p>
+<p>You are now ready to install your rAthena databases.</p>
+<h3 id="database-installation">Database Installation<a class="headerlink" href="#database-installation" title="Permanent link">&para;</a></h3>
+<p>It is now time to install the pre-installed database files that will allow your rAthena server to connect to your MySQL database and properly store data, such as characters, items, and guilds. Open up MySQL Workbench to the home screen.</p>
+<ol>
+<li>Double click "localhost" on the left under the "SQL Development" section. (<a href="http://i.imgur.com/HwXFbe5.png">Image</a>)</li>
+<li>On the next screen (after a small loading bubble pops up), you will have access to the specific tables that were mentioned earlier. You will enter this screen in the future when you want to edit accounts and other things directly (not common).</li>
+<li>We need to install a new "Schema", this is like a folder where all the database tables are stored. <a href="http://i.imgur.com/70F2Ckl.png">Click the yellow cylinder looking thing in the upper left to create a new Schema</a>. Name it "ragnarok" - <strong>NOTE!</strong> Lower case is important here, make sure it is exactly "ragnarok". The server collation should be "Server Default".</li>
+<li>Click "Apply" to create the Schema. A window will pop up with the actual commands that are going to take place; click "Apply" again to finalize your order.</li>
+<li>Now right click 'ragnarok' under "Object Browser" and click "Set as default schema", a line will appear through it telling the browser that any commands you make now will be ordered to that Schema.</li>
+<li>Next, <a href="http://i.imgur.com/ntGId6y.png">click the button directly to the left of the one you just did</a>, it says "SQL" with a tiny folder. Navigate to your rAthena/sql-files/ folder, and open the sql script file "main.sql".</li>
+<li>You'll see a bunch of code appear, these are commands that will tell the browser to create plain databases for your rAthena server. Click the yellow lightning bolt in the upper left hand corner to execute it and allow it to finish (ensure you click the first lightning bolt, the one without a cursor symbol or a magnifying glass over it).</li>
+<li>After it finishes, a bunch of executed commands will appear on the bottom of the screen. You can now expand the ragnarok schema to see a bunch of tables. (<a href="http://i.imgur.com/GdUYaiU.png">Image</a>)</li>
+<li>Now, do the same thing for a schema called "log", but open and execute logs.sql instead of main.sql. Ensure the tables are there as well.</li>
+<li>Close the existing query tabs by hitting the "X" in the upper right of the tab. With the ragnarok tables still open, scroll down to the "login" table and <strong>RIGHT click</strong> it, then select "Edit Table Data".</li>
+<li>Here you'll see existing account information that players can log in with to make characters. If you remember, the first account is the server communication account and it has the default password that you were asked to reset earlier. For our example we chose "FishUser" and "FishPassword". Enter these in the "username" and "password" field. And then create your first GM account by clicking where the word "null" is on the row with a ' * ' and enter "2000000" for the "account_id" field, with a username and password that you like. For this guide we chose a username of "AthenaGM" and a password of "12345" and a sex of "M". To enable full administrator GM, just set the "group_id" to "99". Zero out everything else. <a href="http://i.imgur.com/fgkz4uC.png">When you are finished it should look like THIS</a>.</li>
+<li>Hit the "Apply" button in the corner and then again when the code prompt appears. This should modify your tables. After it is done, you may close the SQL Editor by clicking the "X" on the tab at upper left corner. Hitting the "X" in the upper right closes the whole workbench. If you accidentally close it, just open it again.</li>
+<li>On the Workbench Home Screen, click "Manage Security" under Server Administration. Select "mysqld@localhost" and then click "OK".</li>
+<li>The next screen is the security window. You want to add an account that your server can use to access the databases that is NOT the root account, for enhanced security. Click "Add Account" in the lower left of the default screen.</li>
+<li>The login name needs to be "ragnarok", and the password we selected earlier for this guide is "Fish". The system will tell you how strong your password is... Fish is a very weak password. Leave the connectivity limit box defaulted and then hit "Apply" in the lower right. (<a href="http://i.imgur.com/00X2bQX.png">Image</a>)</li>
+<li>You'll see the account show up in the left above root. Select it and then click the "Administrative Roles" tab.</li>
+<li>Ensure that the "MonitorAdmin", "DBManager", "DBDesigner" and "BackupAdmin" are checked. Some of these will select themselves based on what you click. Then click "Apply". As a note, this step isn't entirely necessary but provides increased security. The simpler step is to just give the user all privileges by clicking the "DBA" option at the top. (<a href="http://i.imgur.com/fddQevd.png">Image</a>)</li>
+<li>Click the "Schema Privileges" tab.</li>
+<li>In this tab, click "ragnarok" and then click the only available button, which is "Add Entry...".</li>
+<li>Leave "Any Host" selected and change Schema to "Selected Schemas". Then select the "ragnarok" schema and hit OK.</li>
+<li>At the bottom, hit "Select 'ALL'" to enable all database privileges for this Schema. This allows your <em>ragnarok</em> user to have access to all the tables in the schema of the same name. In other words, it allows your server to read/write the tables in the database you made. Make sure you click "Save Changes".</li>
+<li>Do the same for the "log" schema you made. When you are <a href="http://i.imgur.com/I2vfBbG.png">done it should look like this</a>.</li>
+</ol>
+<p><strong>Congratulations!</strong> You have successful installed the MySQL database and are ready to run your server! See below for further adjustments.</p>
+<h4 id="additional-configurations">Additional Configurations<a class="headerlink" href="#additional-configurations" title="Permanent link">&para;</a></h4>
+<h5 id="item_db-and-mob_db">item_db and mob_db<a class="headerlink" href="#item_db-and-mob_db" title="Permanent link">&para;</a></h5>
+<p>Open your SQL editor by double clicking your connection under SQL development. Right click ragnarok, and set it as your default schema, then right click it again and choose "Alter schema...", then change collation from latin1 to utf8 - default collation.(<a href="http://i.imgur.com/XLL88ew.png">Image</a>) Then open item_db.sql and mob_db.sql(item_db_re.sql or mob_db_re.sql for Renewal servers) with a text editor, they are located in your sql-files folder, and select all of the text by either right clicking and choosing select all, or clicking edit and select all, then copy by doing basically the same thing for selecting but choose copy; you can also press and hold ctrl and C, then release. Now go back to the SQL editor, and in the white box below the tab that says SQL editor paste the contents of either item_db.sql or mob_db.sql (item_db_re.sql or mob_db_re.sql for Renewal servers), execute, and then do the other one and execute. (<a href="http://i.imgur.com/aK9CYNs.png">Image</a>) Next, open inter_athena.conf in your conf folder, look for:</p>
+<p><code>//Use SQL item_db and mob_db for the map server</code>
+<code>use_sql_db: no</code></p>
+<p>And change no to yes. Note that if you have a modified version of Athena such as 3CeAM you will have to manually add the modifications from the item_db in the db folder to your MySQL item_db, and also for mob_db. If you do not you will get errors when running your server.</p>
+<h5 id="enabling-logging">Enabling Logging<a class="headerlink" href="#enabling-logging" title="Permanent link">&para;</a></h5>
+<p>Simply open log_athena.conf in your conf folder, and look for:</p>
+<p><code>// Use MySQL Logs? (SQL Version Only)</code>
+<code>sql_logs: 0</code></p>
+<p>Change 0 to 1. You can also go through and change logging options. Your logs will be stored within your log schema. To view IPs in loginlog, you must click it, then right click it and choose alter table, then click on the columns tab. For the PK row, check all of the boxes, then apply it. Now you can double click on the loginlog and view the IPs, though after you are done alter the table again and uncheck all the boxes, this helps insure security. This should only be done for IP bans.</p>
+<h5 id="increasing-security">Increasing Security<a class="headerlink" href="#increasing-security" title="Permanent link">&para;</a></h5>
+<p><strong>Use MD5 to encrypt your password</strong>
+** <strong>WARNING:</strong> This will turn your passwords gibberish, just numbers and letters, making them unreadable so be sure to note down your password, either in a text file on your C drive, or on a piece of paper. In MySQL Workbench, click edit, then preferences, then click the SQL Queries tab. Uncheck "(Safe Updates) Forbid UPDATE and DELETE statements without a WHERE clause...", then click OK. Make ragnarok your default schema, by right clicking its name and clicking "Set as Default Schema", now click File, then Open SQL script, and open convert_passwords.sql. Then click the execute icon.</p>
+<h2 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h2>
+<p>To Install the Mysql Server there is really only a few things that you have to do.</p>
+<h3 id="installing-mysql">Installing MySQL<a class="headerlink" href="#installing-mysql" title="Permanent link">&para;</a></h3>
+<p>From your terminal, type</p>
+<p><code>sudo yum install mysql-server*</code></p>
+<ul>
+<li>OR -</li>
+</ul>
+<p><code>sudo apt-get install mysql-server</code></p>
+<p>After your Operating System downloaded and installed MySQL, you will see your terminal window changed and you will be prompted to provide the root password for the MySQL server</p>
+<h3 id="setting-up-your-own-user">Setting up your own user<a class="headerlink" href="#setting-up-your-own-user" title="Permanent link">&para;</a></h3>
+<p>Once the server has been installed you will need to call the server from terminal with this command.</p>
+<p><code>mysql -u root</code></p>
+<p>or</p>
+<p><code>mysql -u root -p</code></p>
+<p>then, type in your password.</p>
+<p>You are now logged into the MySQL server as root. The best way to use your own SQL server is to have a username of your own control with your own password. The next command will create your own user. The <code>IDENTIFIED</code> <code>BY</code> clause defines the password.</p>
+<p><code>CREATE USER 'ragnarok'@'%' IDENTIFIED BY 'ragnarok';</code>
+<code>GRANT ALL PRIVILEGES ON 'ragnarok'.* to 'ragnarok'@'%' IDENTIFIED BY 'ragnarok';</code>
+<code>flush privileges;</code></p>
+<p>If that doesn't work it my be due to a version syntax error, try the following.</p>
+<div class="language-text highlight"><pre><span></span><code>  CREATE USER &#39;ragnarok&#39;@&#39;%&#39; IDENTIFIED BY &#39;ragnarok&#39;;
+  GRANT ALL PRIVILEGES ON ragnarok.* to &#39;ragnarok&#39;@&#39;%&#39; IDENTIFIED BY &#39;ragnarok&#39;;
+</code></pre></div>
+<h3 id="installing-the-tables">Installing the Tables<a class="headerlink" href="#installing-the-tables" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code>  cd /path/to/rathena/
+</code></pre></div>
+<p>Note: Afterwards issue this command lines, please have your password prepared since every after command lines issued you will be prompted for it.</p>
+<div class="language-text highlight"><pre><span></span><code>  mysql -u root -p ragnarok &lt; main.sql
+
+  mysql -u root -p ragnarok &lt; logs.sql
+
+  mysql -u root -p ragnarok &lt; item_db.sql
+
+  mysql -u root -p ragnarok &lt; item_db2.sql
+
+  mysql -u root -p ragnarok &lt; item_db_re.sql
+
+  mysql -u root -p ragnarok &lt; item_db2_re.sql
+
+  mysql -u root -p ragnarok &lt; item_cash_db.sql
+
+  mysql -u root -p ragnarok &lt; item_cash_db2.sql
+
+  mysql -u root -p ragnarok &lt; mob_db.sql
+
+  mysql -u root -p ragnarok &lt; mob_db2.sql
+
+  mysql -u root -p ragnarok &lt; mob_db_re.sql
+
+  mysql -u root -p ragnarok &lt; mob_skill_db.sql
+
+  mysql -u root -p ragnarok &lt; mob_skill_db2.sql
+
+  mysql -u root -p ragnarok &lt; mob_skill_db_re.sql
+</code></pre></div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 27, 2026 12:44:08 UTC"><span class="timeago" datetime="2026-05-27T12:44:08+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 27, 2026 12:44:08 UTC">2026-05-27</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright(c) rAthena Development Team, 2011 - 2023
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/rathena/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://rathena.org/board/" target="_blank" rel="noopener" title="rathena.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 0C28.7 0 0 28.7 0 64v288c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/rathena/rathena/wiki/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="m640 51.2-.3 12.2c-28.1.8-45 15.8-55.8 40.3-25 57.8-103.3 240-155.3 358.6H415l-81.9-193.1c-32.5 63.6-68.3 130-99.2 193.1-.3.3-15 0-15-.3C172 352.3 122.8 243.4 75.8 133.4 64.4 106.7 26.4 63.4.2 63.7c0-3.1-.3-10-.3-14.2h161.9v13.9c-19.2 1.1-52.8 13.3-43.3 34.2 21.9 49.7 103.6 240.3 125.6 288.6 15-29.7 57.8-109.2 75.3-142.8-13.9-28.3-58.6-133.9-72.8-160-9.7-17.8-36.1-19.4-55.8-19.7V49.8l142.5.3v13.1c-19.4.6-38.1 7.8-29.4 26.1 18.9 40 30.6 68.1 48.1 104.7 5.6-10.8 34.7-69.4 48.1-100.8 8.9-20.6-3.9-28.6-38.6-29.4.3-3.6 0-10.3.3-13.6 44.4-.3 111.1-.3 123.1-.6v13.6c-22.5.8-45.8 12.8-58.1 31.7l-59.2 122.8c6.4 16.1 63.3 142.8 69.2 156.7L559.2 91.8c-8.6-23.1-36.4-28.1-47.2-28.3V49.6l127.8 1.1.2.5z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://discord.gg/rathena-96459614895226880" target="_blank" rel="noopener" title="discord.gg" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="../../js/timeago.min.js"></script>
+      
+        <script src="../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../javascripts/smoothScrolling.js"></script>
+      
+    
+  </body>
+</html>
